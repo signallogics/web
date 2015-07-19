@@ -1,0 +1,46 @@
+{
+  "name": "ctfight-web",
+  "version": "0.0.0",
+  "description": "CTFight site",
+  "main": "dist/index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "coffee dist/index.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctfight/ctfight-web.git"
+  },
+  "author": "CTFight team <https://github.com/ctfight>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ctfight/ctfight-web/issues"
+  },
+  "homepage": "https://github.com/ctfight/ctfight-web#readme",
+  "devDependencies": {
+    "browser-sync": "^2.7.13",
+    "browserify": "^11.0.0",
+    "coffeeify": "^1.1.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-combine-media-queries": "^0.2.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-if": "^1.2.5",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-streamify": "0.0.5",
+    "gulp-stylus": "^2.0.5",
+    "gulp-uglify": "^1.2.0",
+    "run-sequence": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.3.0",
+    "yargs": "^3.15.0"
+  },
+  "dependencies": {
+    "coffee-script": "^1.9.3",
+    "express": "^4.13.1",
+    "jade": "^1.11.0"
+  }
+}
