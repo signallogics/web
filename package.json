@@ -1,11 +1,11 @@
 {
   "name": "ctfight-web",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "CTFight site",
-  "main": "dist/index.coffee",
+  "main": "index.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "coffee dist/index.coffee"
+    "start": "nodemon index.coffee"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "gulp-streamify": "0.0.5",
     "gulp-stylus": "^2.0.5",
     "gulp-uglify": "^1.2.0",
+    "normalize-styl": "^3.0.3",
     "run-sequence": "^1.1.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.3.0",
