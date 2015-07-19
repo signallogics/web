@@ -31,8 +31,8 @@ paths =
   html: './assets/template/*.html'
   stylus: './assets/stylesheets/*.styl'
   deep_stylus: './assets/stylesheets/**/*.styl'
-  jade: './dist/views/*.jade'
-  dest: './dist/'
+  jade: './static/views/*.jade'
+  dest: './static/'
 
 buildScript = (files, watch) ->
   rebundle = (callback) ->
@@ -104,5 +104,5 @@ gulp.task 'watch', ['browser-sync', 'watchjs'], ->
   gulp.watch paths.jade
     .on 'change', sync.reload
   nodemon
-    script: 'dist/index.coffee'
-    watch: 'dist/index.coffee'
+    script: 'index.coffee'
+    watch: 'index.coffee'
