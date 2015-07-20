@@ -1,0 +1,38 @@
+doctype
+head
+	title CTFight | Guideline
+	meta(charset='utf-8')
+	link(rel='stylesheet' href='/generated/main.css')
+	link(rel='stylesheet' href='/generated/styleguide.css')
+	link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css')
+	script(src='/generated/app.js')
+	script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js')
+	script hljs.initHighlightingOnLoad();
+body
+	.content
+		:markdown
+			# CTFight Application Styleguide
+			Read it to understand why you need styleguide - [Создание руководства по стилю (Russian)](http://frontender.info/creating-style-guides)
+
+			# Color palette used
+
+		.color-pallete
+			.color-pallete__element.color_wisteria Wisteria
+			.color-pallete__element.color_martinique Martinique
+			.color-pallete__element.color_ebony-clay Ebony Clay
+			.color-pallete__element.color_slate-gray Slate Gray
+			.color-pallete__element.color_blue-marguerite Blue Marguerite
+			.color-pallete__element.color_blue-chalk Blue Chalk
+			.color-pallete__element.color_east-side East Side
+
+		h1 Buttons
+		.bg-violet
+			button.btn text button
+			button.btn.btn--important .btn
+			:code
+				<button class="btn">text button</button>
+				<button class="btn btn--important">text button</button>
+
+
+
+
