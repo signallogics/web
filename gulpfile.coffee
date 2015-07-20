@@ -32,7 +32,7 @@ paths =
   stylus: './assets/stylesheets/*.styl'
   deep_stylus: './assets/stylesheets/**/*.styl'
   jade: './static/views/*.jade'
-  dest: './static/'
+  dest: './static/generated/'
 
 buildScript = (files, watch) ->
   rebundle = (callback) ->
@@ -78,6 +78,7 @@ gulp.task 'stylus', ->
     .pipe gulpif not production, sourcemaps.init()
     .pipe stylus
       'include css': true
+      include: ['node_modules/']
       compress: production
     .pipe gulpif production, cmq()
     .pipe autoprefixer browsers: ['last 2 version', '> 1%']
