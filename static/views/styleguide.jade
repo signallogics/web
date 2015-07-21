@@ -4,11 +4,9 @@ head
 	meta(charset='utf-8')
 	link(rel='stylesheet' href='/generated/main.css')
 	link(rel='stylesheet' href='/generated/styleguide.css')
-	link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_dark.min.css')
+	link(rel='stylesheet' href='/prism/prism.css')
 	script(src='/generated/app.js')
-	script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js')
-	script hljs.initHighlightingOnLoad();
-body
+body.styleguide-page
 	.content
 		:markdown
 			# CTFight Application Styleguide
@@ -26,13 +24,37 @@ body
 			.color-pallete__element.color_east-side East Side
 
 		h1 Buttons
+		style
+			| .btn { margin: 10px 15px }
 		.bg-violet
 			button.btn text button
-			button.btn.btn--important .btn
-			:code
-				<button class="btn">text button</button>
-				<button class="btn btn--important">text button</button>
+			button.btn.btn--important important button
+			button.btn.btn--important.btn--shine important shine button
+			button.btn.btn--submit submit button
+		:jade
+			button.btn text button
+			button.btn.btn--important important button
+			button.btn.btn--important.btn--shine important shine button
+			button.btn.btn--submit submit button
 
+		h1 Inputs
+		style
+			| .bg-violet > * { display: block; margin: 20px 15px }
+		.bg-violet
+			input.input(placeholder='e-mail address')
+			input.input.input--shine(placeholder='e-mail address')
+			div
+				.input--rich(style='margin-left: 200px')
+					input.input(placeholder='e-mail address')
+					.input--necessary
+		:jade
+			input.input(placeholder='e-mail address')
+			input.input.input--shine(placeholder='e-mail address')
+			div
+				.input--rich(style='margin-left: 200px')
+					input.input(placeholder='e-mail address')
+					.input--necessary Some text
 
+		div(style='height: 300px')
 
-
+	script(src='/prism/prism.js')
