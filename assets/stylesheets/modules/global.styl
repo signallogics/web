@@ -1,27 +1,96 @@
 body
 	font-family "Helvetica Nueu", Helvetica, Arial
+	font-weight 100
 
 h1, h2, h3, h4, h5, h6
 	font-weight 400
 
 .btn
 	font-size 20px
-	font-weight 100
 	color color_blue-chalk
 	text-transform uppercase
-	padding 20px 25px
+	padding 22px 25px 18px
 	border-radius 5px
 	border solid transparent 1px
 	background transparent
-	transition color animation_fast, border animation_fast, background animation_fast
+	transition color animation_fast, border animation_fast, background animation_fast, box-shadow animation_fast
 	&:hover
 		background alpha(color_blue-marguerite, .2)
-		border solid color_blue-marguerite 1px
+		border solid color_wisteria 1px
 	&:active
 		transition none
 		background alpha(color_blue-marguerite, .5)
 	&--important
 		color color_wisteria
 		border solid color_wisteria 1px
+	&--shine:hover
+		box-shadow 0 0 15px 2px alpha(white, .2)
+	&--submit
+		background alpha(white, .9)
+		border solid 1px color_wisteria
+		color color_wisteria
+		&:hover
+			background white
+		&:active
+			transition none
+			box-shadow 0 0 15px 2px alpha(white, .2)
+
+
+.input
+	font-size 14px
+	color color_wisteria
+	padding 21px 20px
+	border-radius 5px
+	border solid color_wisteria 1px
+	background transparent
+	transition color animation_fast, border animation_fast, background animation_fast, box-shadow animation_fast
+	outline none
+	// position relative
+
+	+placeholder()
+		color darken(desaturate(color_wisteria, 20%), 20%)
+	&:focus
+		border-color color_blue-chalk
+		& + .input--necessary
+			background white
+	&--shine:hover
+		box-shadow 0 0 15px 2px alpha(white, .5)
+	&--rich
+		position relative
+		display inline-block
+	&--necessary
+		position absolute
+		height 100%
+		top 0
+		width 9px
+		border-radius 5px 0 0 5px
+		background color_wisteria
+		cursor default
+		transition background animation_fast
+		&:before
+			content 'Обязательно'
+			color color_blue-chalk
+			top 8px
+			left -142px
+			padding 12px 20px
+			background alpha(color_wisteria, .2)
+			border-radius 5px
+			border solid 1px color_wisteria
+		&:after
+			content ''
+			side = 6px
+			left side * -1
+			bottom 24px
+			border side solid transparent
+			border-left: side solid color_wisteria
+		&:before, &:after
+			position absolute
+			opacity 0
+			transition opacity animation_fast
+			transition-delay 1s // delay before to disappear
+		&:hover:before, &:hover:after
+			opacity 1
+			transition-delay 0s
+
 
 

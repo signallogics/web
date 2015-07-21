@@ -1,64 +1,75 @@
 @import 'modules/variables'
 
-.content
-	margin 0 auto
-	padding 0 20px
-	max-width 1100px
+.styleguide-page
+	.content
+		margin 0 auto
+		padding 0 20px
+		max-width 1100px
 
-.color-pallete
-	padding 10px
-	&__element
+	.color-pallete
+		padding 10px
+		&__element
+			position relative
+			margin-left 30px
+			line-height 30px
+			font-weight bold
+			&:before
+				content ''
+				position absolute
+				margin-left -35px
+				height 28px
+				width @height
+			&:after
+				position absolute
+				left 200px
+				font-weight normal
+
+	.color_
+		&wisteria:before
+			background color_wisteria
+		&wisteria:after
+			content s('"color_wisteria = %s"', color_wisteria)
+		&martinique:before
+			background color_martinique
+		&martinique:after
+			content s('"color_martinique = %s"', color_martinique)
+		&ebony-clay:before
+			background color_ebony-clay
+		&ebony-clay:after
+			content s('"color_ebony-clay = %s"', color_ebony-clay)
+		&slate-gray:before
+			background color_slate-gray
+		&slate-gray:after
+			content s('"color_slate-gray = %s"', color_slate-gray)
+		&blue-marguerite:before
+			background color_blue-marguerite
+		&blue-marguerite:after
+			content s('"color_blue-marguerite = %s"', color_blue-marguerite)
+		&blue-chalk:before
+			background color_blue-chalk
+		&blue-chalk:after
+			content s('"color_blue-chalk = %s"', color_blue-chalk)
+		&east-side:before
+			background color_east-side
+		&east-side:after
+			content s('"color_east-side = %s"', color_east-side)
+
+	.bg-violet
+		background url(/images/top-bg@2x.png)
+		background-size cover
+		padding 10px
+		color white
+		border-radius 5px
+
+	.hl
 		position relative
-		margin-left 30px
-		line-height 30px
-		font-weight bold
-		&:before
-			content ''
-			position absolute
-			margin-left -35px
-			height 28px
-			width @height
+		border-radius 5px
 		&:after
+			content attr(data-lang)
 			position absolute
-			left 200px
-			font-weight normal
-
-.color_
-	&wisteria:before
-		background color_wisteria
-	&wisteria:after
-		content s('"color_wisteria = %s"', color_wisteria)
-	&martinique:before
-		background color_martinique
-	&martinique:after
-		content s('"color_martinique = %s"', color_martinique)
-	&ebony-clay:before
-		background color_ebony-clay
-	&ebony-clay:after
-		content s('"color_ebony-clay = %s"', color_ebony-clay)
-	&slate-gray:before
-		background color_slate-gray
-	&slate-gray:after
-		content s('"color_slate-gray = %s"', color_slate-gray)
-	&blue-marguerite:before
-		background color_blue-marguerite
-	&blue-marguerite:after
-		content s('"color_blue-marguerite = %s"', color_blue-marguerite)
-	&blue-chalk:before
-		background color_blue-chalk
-	&blue-chalk:after
-		content s('"color_blue-chalk = %s"', color_blue-chalk)
-	&east-side:before
-		background color_east-side
-	&east-side:after
-		content s('"color_east-side = %s"', color_east-side)
-
-.bg-violet
-	background url(/images/top-bg@2x.png)
-	background-size cover
-	padding 10px
-	color white
-
-	hr
-		margin 20px 0
-		border-color color_blue-marguerite
+			bottom 0
+			right 0
+			background-color #071217
+			color white
+			padding 5px
+			border-top-left-radius 5px
