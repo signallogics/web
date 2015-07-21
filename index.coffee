@@ -28,14 +28,16 @@ app.get '/teams', (req, res) ->
 
 # development #
 
-hl = require 'highlight.js'
-hl.style = 'solarized_dark'
 jade = require 'jade'
 
-jade.filters.code = (str) ->
-	str = str.replace /\\n/g, '\n'
-	ret = hl.highlightAuto(str).value
-	"<pre><code class=\"html\">#{ret}</code></pre>"
+jade.filters.jade = (str) ->
+	"<pre><code class=\"language-jade\">#{str}</pre></code>"
+
+jade.filters.stylus = (str) ->
+	"<pre><code class=\"language-stylus\">#{str}</pre></code>"
+
+jade.filters.coffee = (str) ->
+	"<pre><code class=\"language-coffeescript\">#{str}</pre></code>"
 
 app.get '/styl', (req, res) ->
 	res.render 'styleguide'
