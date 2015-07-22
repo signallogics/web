@@ -1,19 +1,21 @@
 body
-	font-family "Helvetica Nueu", Helvetica, Arial
+	font-family "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif
 	font-weight 100
 
-h1, h2, h3, h4, h5, h6
-	font-weight 400
 
 .btn
+	display inline-block
 	font-size 20px
 	color color_blue-chalk
+	text-decoration none
 	text-transform uppercase
+	cursor pointer
 	padding 22px 25px 18px
 	border-radius 5px
 	border solid transparent 1px
 	background transparent
-	transition color animation_fast, border animation_fast, background animation_fast, box-shadow animation_fast
+	transition-property color, border, background, box-shadow
+	transition-duration animation_fast
 	&:hover
 		background alpha(color_blue-marguerite, .2)
 		border solid color_wisteria 1px
@@ -37,60 +39,104 @@ h1, h2, h3, h4, h5, h6
 
 
 .input
+	width 400px
 	font-size 14px
 	color color_wisteria
 	padding 21px 20px
 	border-radius 5px
 	border solid color_wisteria 1px
 	background transparent
-	transition color animation_fast, border animation_fast, background animation_fast, box-shadow animation_fast
+	transition-property color, border, background, box-shadow
+	transition-duration animation_fast
 	outline none
-	// position relative
 
 	+placeholder()
-		color darken(desaturate(color_wisteria, 20%), 20%)
+		color color_dim-wisteria
+
+	mode(percent)
+		border-color tint(color_wisteria, percent)
+		& + .input--mark
+			background @border-color
+		& + .input--file
+			box-shadow inset 0 0 0 1px @border-color
+	&:hover
+		mode 40%
 	&:focus
-		border-color color_blue-chalk
-		& + .input--necessary
-			background white
+		mode 80%
+
 	&--shine:hover
 		box-shadow 0 0 15px 2px alpha(white, .5)
 	&--rich
 		position relative
-		display inline-block
-	&--necessary
-		position absolute
-		height 100%
-		top 0
-		width 9px
+		display inline-table
+	&--mark
+		absolute: top
+		size 9px 100%
 		border-radius 5px 0 0 5px
 		background color_wisteria
 		cursor default
 		transition background animation_fast
 		&:before
-			content 'Обязательно'
-			color color_blue-chalk
-			top 8px
-			left -142px
-			padding 12px 20px
-			background alpha(color_wisteria, .2)
-			border-radius 5px
-			border solid 1px color_wisteria
-		&:after
-			content ''
-			side = 6px
-			left side * -1
-			bottom 24px
-			border side solid transparent
-			border-left: side solid color_wisteria
-		&:before, &:after
-			position absolute
+			content attr(data-title)
+			color shade(color_wisteria, 10%)
+			absolute: top 8px right 9px
+			padding-right 20px
+			size 500px 42px
+			line-height @height
+			background url(/images/input--mark__bg.svg) no-repeat
+			background-position right top
+			text-align right
 			opacity 0
 			transition opacity animation_fast
-			transition-delay 1s // delay before to disappear
-		&:hover:before, &:hover:after
+			transition-delay 1s // time before disappearance
+			-moz-transition-delay 0s // it is not supporting by firefox
+		&:hover:before
 			opacity 1
-			transition-delay 0s
+			transition-delay 0
 
+	&--file
+		absolute top right
+		text-align center
+		overflow hidden
+		size 120px 100%
+		background alpha(white, .9)
+		border-radius 0 5px 5px 0
+		box-shadow inset 0 0 0 1px color_wisteria
+		transition box-shadow animation_fast
+		&:hover
+			background white
+			box-shadow 0 0 15px 2px alpha(white, .5)
+		&__view
+			color color_wisteria
+			font-size 18px
+			// padding-top 20px
+			line-height 62px
+			text-transform uppercase
+		&__input
+			cursor pointer
+			margin-top -50px
+			margin-left -410px
+			opacity 0
+			font-size 150px
 
+	~ .tip
+		opacity 0
+		transition-property opacity, height, width
+		transition-duration animation_fast
+	&:focus ~ .tip
+		opacity 1
 
+.tip
+	pointer-events none
+	absolute: top -7px left 100%
+	background url(/images/tip__bg.svg) no-repeat
+	size 500px 400px
+	z-index 10
+	&__title
+		font-size 21px
+		color color_wisteria
+		margin 16px 32px 0
+	&__text
+		font-size 17px
+		color color_dim-wisteria
+		margin 5px 32px
