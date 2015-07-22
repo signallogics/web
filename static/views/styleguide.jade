@@ -6,7 +6,7 @@ head
 	link(rel='stylesheet' href='/generated/styleguide.css')
 	link(rel='stylesheet' href='/prism/prism.css')
 	script(src='/generated/app.js')
-body.styleguide-page.markdown-body
+body.styleguide-page
 	.content
 		:marked
 			# CTFight Application Styleguide
@@ -28,10 +28,10 @@ body.styleguide-page.markdown-body
 			Use tag `a` and class `.btn` for buttons.  
 			There are modifiers `.btn--important`, `.btn--shine`, `.btn--submit`
 
-		details(open)
+		details
 			summary Example
-			style
-				| .btn { margin: 10px }
+			style.
+				.btn { margin: 10px }
 			.bg-violet
 				a(href='').btn text button
 				a(href='').btn.btn--important important button
@@ -144,6 +144,15 @@ body.styleguide-page.markdown-body
 							.input--file__view выбрать
 							input.input--file__input(type='file')
 
+		h1 Links
+		h2 Footer links
+		style.
+			.ebony a { margin: 10px }
+		.ebony
+			a(href='/index').link.link--upper.link--dim github
+			a(href='/index').link.link--upper.link--dim e-mail
+			a(href='/index').link.link--upper.link--dim twitter
+			a(href='/index').link.link--upper.link--dim vk
 		div(style='height: 300px')
 
 	script(src='/prism/prism.js')
