@@ -33,6 +33,12 @@ jade = require 'jade'
 jade.filters.jade = (str) ->
 	"<pre><code class=\"language-jade\">#{str}</pre></code>"
 
+jade.filters.jadelive = (str) ->
+	arr = str.split('\n')
+	className = arr[0]
+	str = arr.slice(1).join('\n')
+	"<div class='example'><div class=#{className}>#{ jade.render str }</div><pre><code class=\"language-jade\">#{str}</pre></code>"
+
 jade.filters.stylus = (str) ->
 	"<pre><code class=\"language-stylus\">#{str}</pre></code>"
 

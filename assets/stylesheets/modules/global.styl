@@ -141,13 +141,24 @@ body
 		color color_dim-wisteria
 		margin 5px 32px
 
-.link
-	text-decoration none
-	transition box-shadow animation_fast
+
+link-gradation(color, underline-size)
 	&:hover
-		box-shadow 0 2px 0 0 color_slate-gray
+		color tint(color, 20%)
+		box-shadow 0 underline-size 0 0 @color
+	&:active
+		color tint(color, 40%)
+		box-shadow 0 underline-size 0 0 @color
+
+.link
+	color color_blue-marguerite
+	text-decoration none
+	transition box-shadow, color
+	transition-duration animation_fast
+	link-gradation @color, 1px
 	&--upper
 		text-transform uppercase
 	&--dim
 		color color_slate-gray
 		font-weight normal
+		link-gradation @color, 2px

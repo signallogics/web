@@ -29,15 +29,11 @@ body.styleguide-page
 			There are modifiers `.btn--important`, `.btn--shine`, `.btn--submit`
 
 		details
-			summary Example
+			summary Buttons example
 			style.
 				.btn { margin: 10px }
-			.bg-violet
-				a(href='').btn text button
-				a(href='').btn.btn--important important button
-				a(href='').btn.btn--important.btn--shine important shine button
-				a(href='').btn.btn--submit submit button
-			:jade
+			:jadelive
+				bg-violet
 				a(href='').btn text button
 				a(href='').btn.btn--important important button
 				a(href='').btn.btn--important.btn--shine important shine button
@@ -48,17 +44,15 @@ body.styleguide-page
 		h3 Standart input
 		details
 			summary Example
-			.bg-violet
-				input.input(placeholder='placeholder')
-			:jade
+			:jadelive
+				bg-violet
 				input.input(placeholder='placeholder')
 
 		h3 Input shine on hover
 		details
 			summary Example
-			.bg-violet
-				input.input.input--shine(placeholder='placeholder')
-			:jade
+			:jadelive
+				bg-violet
 				input.input.input--shine(placeholder='placeholder')
 
 		h2 Rich input
@@ -76,8 +70,9 @@ body.styleguide-page
 
 		details
 			summary Example - All connected
-			.bg-violet(style='padding-left: 150px')
-				div(style='height: 120px')
+			:jadelive
+				bg-violet
+				div(style='height: 120px; padding-left: 150px')
 					.input--rich
 						input.input(placeholder='Логотип (ссылка или файл)')
 						.input--mark(data-title='Обязательно')
@@ -87,72 +82,63 @@ body.styleguide-page
 						.tip
 							.tip__title Логотип
 							.tip__text Вставьте ссылку или выберите файл с компьютера. Размер должен быть не менее 100x100 и не более 1000x1000.
-			:jade
-				.input--rich
-					input.input(placeholder='Логотип (ссылка или файл)')
-					.input--mark(data-title='Обязательно')
-					.input--file
-						.input--file__view выбрать
-						input.input--file__input(type='file')
-					.tip
-						.tip__title Логотип
-						.tip__text Вставьте ссылку или выберите файл с компьютера. Размер должен быть не менее 100x100 и не более 1000x1000.
 
 		h3 Input with mark
 		details
 			summary Example - Mark
-			.bg-violet(style='padding-left: 150px')
-				div
+			:jadelive
+				bg-violet
+				div(style='padding-left: 150px')
 					.input--rich
 						input.input(placeholder='Название команды')
 						.input--mark(data-title='Обязательно')
-			:jade
-				.input--rich
-					input.input(placeholder='Название команды')
-					.input--mark(data-title='Обязательно')
+
 		h3 Input with tip
 		details
 			summary Example - Tip
-			.bg-violet
-				div(style='height: 120px')
+			:jadelive
+				bg-violet
+				div(style='height: 120px; padding: 20px')
 					.input--rich
 						input.input(placeholder='Название команды')
 						.tip
 							.tip__title Название команды
 							.tip__text Вы сможете изменить название позже
-			:jade
-				.input--rich
-					input.input(placeholder='Название команды')
-					.tip
-						.tip__title Название команды
-						.tip__text Вы сможете изменить название позже
 
 		h3 Input with file choice
 		details
 			summary Example - File choice
-			.bg-violet
-				div
-					.input--rich
-						input.input(placeholder='Логотип (ссылка или файл)')
-						.input--file
-							.input--file__view выбрать
-							input.input--file__input(type='file')
-				:jade
-					.input--rich
-						input.input(placeholder='Логотип (ссылка или файл)')
-						.input--file
-							.input--file__view выбрать
-							input.input--file__input(type='file')
+			:jadelive
+				bg-violet
+				.input--rich
+					input.input(placeholder='Логотип (ссылка или файл)')
+					.input--file
+						.input--file__view выбрать
+						input.input--file__input(type='file')
 
 		h1 Links
+		:marked
+			Use tag `a` and class `.link` for links  
+			There are modifiers `.link-upper`, `.link-dim`
+		h2 Simple links
+		details
+			summary Example - Simple links
+			:jadelive
+				martinique
+				a(href='https://github.com').link GitHub
+				a(href='mailto:nitive@icloud.com').link e-mail
+				a(href='https://twitter.com').link Twitter
+				a(href='https://vk.com/ctfight').link.link--upper vk
+
 		h2 Footer links
-		style.
-			.ebony a { margin: 10px }
-		.ebony
-			a(href='/index').link.link--upper.link--dim github
-			a(href='/index').link.link--upper.link--dim e-mail
-			a(href='/index').link.link--upper.link--dim twitter
-			a(href='/index').link.link--upper.link--dim vk
-		div(style='height: 300px')
+		details
+			summary Example - Footer links
+			:jadelive
+				ebony
+				a(href='/index').link.link--upper.link--dim index
+				a(href='/request').link.link--upper.link--dim request
+				a(href='/teams').link.link--upper.link--dim teams
+				a(href='https://vk.com/ctfight').link.link--upper.link--dim vk
+	div(style='height: 300px')
 
 	script(src='/prism/prism.js')
