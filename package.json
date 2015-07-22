@@ -45,6 +45,7 @@
     "express": "^4.13.1",
     "highlight.js": "^8.6.0",
     "jade": "^1.11.0",
+    "jstransformer-marked": "0.0.2",
     "marked": "^0.3.3"
   }
 }
