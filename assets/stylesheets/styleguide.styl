@@ -15,8 +15,8 @@
 	h3
 		padding-top 10px
 
-	code
-		font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	code:not([class*='lang'])
+		font-family Consolas, "Liberation Mono", Menlo, Courier, monospace;
 		padding 2px 5px
 		line-height 2
 		background-color: rgba(0,0,0,0.4);
@@ -77,16 +77,25 @@
 		&east-side:after
 			content s('"color_east-side = %s"', color_east-side)
 
+
 	.bg-violet
 		image '/images/top-bg.png'
 		background-size cover
 		padding 10px
 		color white
 		border-radius 5px
-	.ebony
-		background color_ebony-clay
+
+	bg-from-color(color)
+		background color
 		padding 10px
 		border-radius 5px
+		a
+			margin 10px
+	.ebony
+		bg-from-color color_ebony-clay
+	.martinique
+		bg-from-color color_martinique
+
 
 	.hl
 		position relative
@@ -98,4 +107,9 @@
 			color white
 			padding 5px
 			border-top-left-radius 5px
+	.example
+		background color_ebony-clay
+		padding 10px
+		border-radius 5px
+		border solid #98acc9 1px
 
