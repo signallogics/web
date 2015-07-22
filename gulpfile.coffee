@@ -12,6 +12,7 @@ cmq = require 'gulp-combine-media-queries'
 autoprefixer = require 'gulp-autoprefixer'
 cssmin = require 'gulp-cssmin'
 sourcemaps = require 'gulp-sourcemaps'
+nib = require 'nib'
 
 # utilities
 nodemon = require 'gulp-nodemon'
@@ -77,9 +78,11 @@ gulp.task 'stylus', ->
     .pipe plumber errorHandler: notify.onError "Error: <%= error.message %>"
     .pipe gulpif not production, sourcemaps.init()
     .pipe stylus
+      use: [nib()]
       'include css': true
       include: ['node_modules/']
       compress: production
+      import: ['nib']
     .pipe gulpif production, cmq()
     .pipe autoprefixer browsers: ['last 2 version', '> 1%']
     .pipe gulpif production, cssmin()

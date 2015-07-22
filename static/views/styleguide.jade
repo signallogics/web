@@ -6,7 +6,7 @@ head
 	link(rel='stylesheet' href='/generated/styleguide.css')
 	link(rel='stylesheet' href='/prism/prism.css')
 	script(src='/generated/app.js')
-body.styleguide-page
+body.styleguide-page.markdown-body
 	.content
 		:markdown
 			# CTFight Application Styleguide
@@ -23,37 +23,132 @@ body.styleguide-page
 			.color-pallete__element.color_blue-chalk Blue Chalk
 			.color-pallete__element.color_east-side East Side
 
-		h1 Buttons
-		style
-			| .btn { margin: 10px 15px }
-		.bg-violet
-			button.btn text button
-			button.btn.btn--important important button
-			button.btn.btn--important.btn--shine important shine button
-			button.btn.btn--submit submit button
-		:jade
-			button.btn text button
-			button.btn.btn--important important button
-			button.btn.btn--important.btn--shine important shine button
-			button.btn.btn--submit submit button
+		:markdown
+			# Buttons
+			Use tag `a` and class `.btn` for buttons.  
+			There are modifiers `.btn--important`, `.btn--shine`, `.btn--submit`
+
+		details(open)
+			summary Example
+			style
+				| .btn { margin: 10px }
+			.bg-violet
+				a(href='').btn text button
+				a(href='').btn.btn--important important button
+				a(href='').btn.btn--important.btn--shine important shine button
+				a(href='').btn.btn--submit submit button
+			:jade
+				a(href='').btn text button
+				a(href='').btn.btn--important important button
+				a(href='').btn.btn--important.btn--shine important shine button
+				a(href='').btn.btn--submit submit button
 
 		h1 Inputs
-		style
-			| .bg-violet > * { display: block; margin: 20px 15px }
-		.bg-violet
-			input.input(placeholder='e-mail address')
-			input.input.input--shine(placeholder='e-mail address')
-			div
-				.input--rich(style='margin-left: 200px')
-					input.input(placeholder='e-mail address')
-					.input--necessary
-		:jade
-			input.input(placeholder='e-mail address')
-			input.input.input--shine(placeholder='e-mail address')
-			div
-				.input--rich(style='margin-left: 200px')
-					input.input(placeholder='e-mail address')
-					.input--necessary Some text
+
+		h3 Standart input
+		details
+			summary Example
+			.bg-violet
+				input.input(placeholder='placeholder')
+			:jade
+				input.input(placeholder='placeholder')
+
+		h3 Input shine on hover
+		details
+			summary Example
+			.bg-violet
+				input.input.input--shine(placeholder='placeholder')
+			:jade
+				input.input.input--shine(placeholder='placeholder')
+
+		h2 Rich input
+		p Rich input allow use mark, tip and file choice for input field
+		h3 Connect structure
+		p
+			mark IMPORTANT!
+			span  Use this order to connect the features for input field
+		:markdown
+			* `.input--rich`
+				* `input.input`
+				* `.input--mark`
+				* `.input--file`
+				* `.tip`
+
+		details
+			summary Example - All connected
+			.bg-violet(style='padding-left: 150px')
+				div(style='height: 120px')
+					.input--rich
+						input.input(placeholder='Логотип (ссылка или файл)')
+						.input--mark(data-title='Обязательно')
+						.input--file
+							.input--file__view выбрать
+							input.input--file__input(type='file')
+						.tip
+							.tip__title Логотип
+							.tip__text Вставьте ссылку или выберите файл с компьютера. Размер должен быть не менее 100x100 и не более 1000x1000.
+			:jade
+				.input--rich
+					input.input(placeholder='Логотип (ссылка или файл)')
+					.input--mark(data-title='Обязательно')
+					.input--file
+						.input--file__view выбрать
+						input.input--file__input(type='file')
+					.tip
+						.tip__title Логотип
+						.tip__text Вставьте ссылку или выберите файл с компьютера. Размер должен быть не менее 100x100 и не более 1000x1000.
+
+		h3 Input with mark
+		details
+			summary Example - Mark
+			.bg-violet(style='padding-left: 150px')
+				div
+					.input--rich
+						input.input(placeholder='Название команды')
+						.input--mark(data-title='Обязательно')
+						.tip
+							.tip__title Название команды
+							.tip__text Вы сможете изменить название позже
+			:jade
+				.input--rich
+					input.input(placeholder='Название команды')
+					.input--mark(data-title='Обязательно')
+					.tip
+						.tip__title Название команды
+						.tip__text Вы сможете изменить название позже
+		h3 Input with tip
+		details
+			summary Example - Tip
+			.bg-violet
+				div(style='height: 120px')
+					.input--rich
+						input.input(placeholder='Название команды')
+						.tip
+							.tip__title Название команды
+							.tip__text Вы сможете изменить название позже
+			:jade
+				.input--rich
+					input.input(placeholder='Название команды')
+					.tip
+						.tip__title Название команды
+						.tip__text Вы сможете изменить название позже
+
+		h3 Input with file choice
+		details
+			summary Example - File choice
+			.bg-violet
+				div
+					.input--rich
+						input.input(placeholder='Логотип (ссылка или файл)')
+						.input--file
+							.input--file__view выбрать
+							input.input--file__input(type='file')
+				:jade
+					.input--rich
+						input.input(placeholder='Логотип (ссылка или файл)')
+						.input--file
+							.input--file__view выбрать
+							input.input--file__input(type='file')
 
 		div(style='height: 300px')
 
