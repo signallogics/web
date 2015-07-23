@@ -7,3 +7,11 @@ placeholder()
 		{block}
 	&:-ms-input-placeholder
 		{block}
+
+link-gradation(color, underline-size)
+	&:hover
+		color tint(color, 20%)
+		box-shadow 0 underline-size 0 0 @color
+	&:active
+		color tint(color, 40%)
+		box-shadow 0 underline-size 0 0 @color
