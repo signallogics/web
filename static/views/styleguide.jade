@@ -2,8 +2,8 @@ doctype
 head
 	title CTFight | Guideline
 	meta(charset='utf-8')
-	link(rel='stylesheet' href='/generated/main.css')
 	link(rel='stylesheet' href='/generated/styleguide.css')
+	link(rel='stylesheet' href='/generated/main.css')
 	link(rel='stylesheet' href='/prism/prism.css')
 	script(src='/generated/app.js')
 body.styleguide-page
@@ -139,6 +139,18 @@ body.styleguide-page
 				a(href='/request').link.link--upper.link--dim request
 				a(href='/teams').link.link--upper.link--dim teams
 				a(href='https://vk.com/ctfight').link.link--upper.link--dim vk
+
+		h1 Header
+		details(open)
+			summary Header
+				:jadelive
+					bg-violet
+					header.header
+						.logo.header__logo CT
+						a.header__link.btn(href='index') index
+						a.header__link.btn(href='request') request
+						a.header__link.btn.btn--important.btn--shine(href='teams') teams
+
 	div(style='height: 300px')
 
 	script(src='/prism/prism.js')

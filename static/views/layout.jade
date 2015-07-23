@@ -5,7 +5,10 @@ head
 	link(rel='stylesheet' href='/generated/main.css')
 	script(src='/generated/app.js')
 body
-	a(href='index') index
-	a(href='request') request
-	a(href='teams') teams
+	.top-bg
+	header.header
+		.logo.header__logo(onclick="location.href='index'") CT
+		a.header__link.btn(href='index') что это?
+		a.header__link.btn(href='teams') участники
+		a.header__link.btn.btn--important.btn--shine(href='request') участвовать
 	block content
