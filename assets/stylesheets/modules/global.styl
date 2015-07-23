@@ -2,17 +2,15 @@ body
 	font-family "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif
 	font-weight 200
 	color color_blue-chalk
-	background color_ebony-clay
 	width 100%
 
-// body, .top-bg
-// 	min-width 900px
-
 .wrap
+	max-width 1440px
 	min-width 900px
 	width auto !important  // Firefox will set width as auto
 	width @min-width
 	overflow hidden
+	min-height calc(100vh - 150px)
 
  .top-bg
 	background-color #33104d
@@ -74,9 +72,9 @@ body
 
 	mode(percent)
 		border-color tint(color_wisteria, percent)
-		& + .input--mark
+		& ~ .input--mark
 			background @border-color
-		& + .input--file
+		& ~ .input--file
 			box-shadow inset 0 0 0 1px @border-color
 	&:hover
 		mode 40%
@@ -158,6 +156,7 @@ body
 		margin 5px 32px
 
 .link
+	cursor pointer
 	color color_blue-marguerite
 	text-decoration none
 	transition box-shadow, color
@@ -168,8 +167,8 @@ body
 	background url(/images/logo--gray.svg) no-repeat
 	background-size 63px auto
 	size 86px
-	cursor pointer
 
+	user-select none
 	font-size 49px
 	box-sizing border-box
 	padding 2px 55px

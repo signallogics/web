@@ -1,8 +1,12 @@
 
+footer-height = 150px
 .footer
 	position relative
+	height footer-height
+	user-select none
+	background color_ebony-clay
 	&__logo
-		absolute: top
+		absolute: top -13px
 		left calc(50% - 110px)
 		color color_slate-gray
 		margin 0 auto
@@ -12,4 +16,13 @@
 		color color_slate-gray
 		font-weight normal
 		link-gradation @color, 2px
-		line-height 100px
+		line-height footer-height
+		margin 0 20px
+	&__left-links
+		width calc(50% - 150px)
+		text-align right
+	&__right-links
+		float right
+		width calc(50% - 150px)
+		margin-top -(footer-height)
+
