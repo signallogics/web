@@ -2,11 +2,23 @@ body
 	font-family "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif
 	font-weight 200
 	color color_blue-chalk
+	background color_ebony-clay
+	width 100%
 
-.top-bg
-	absolute: top
+// body, .top-bg
+// 	min-width 900px
+
+.wrap
+	min-width 900px
+	width auto !important  // Firefox will set width as auto
+	width @min-width
+	overflow hidden
+
+ .top-bg
+	background-color #33104d
 	image '/images/top-bg.png'
-	height 700px
+	height 840px
+	margin-bottom -@height
 	width 100%
 	z-index -1
 
@@ -49,7 +61,7 @@ body
 	width 400px
 	font-size 14px
 	color color_wisteria
-	padding 21px 20px
+	padding 20px
 	border-radius 5px
 	border solid color_wisteria 1px
 	background transparent
@@ -95,11 +107,8 @@ body
 			text-align right
 			opacity 0
 			transition opacity animation_fast
-			transition-delay 1s // time before disappearance
-			-moz-transition-delay 0s // it is not supporting by firefox
 		&:hover:before
 			opacity 1
-			transition-delay 0
 
 	&--file
 		absolute top right
@@ -148,24 +157,22 @@ body
 		color color_dim-wisteria
 		margin 5px 32px
 
-
-link-gradation(color, underline-size)
-	&:hover
-		color tint(color, 20%)
-		box-shadow 0 underline-size 0 0 @color
-	&:active
-		color tint(color, 40%)
-		box-shadow 0 underline-size 0 0 @color
-
 .link
 	color color_blue-marguerite
 	text-decoration none
 	transition box-shadow, color
 	transition-duration animation_fast
 	link-gradation @color, 1px
-	&--upper
-		text-transform uppercase
-	&--dim
-		color color_slate-gray
-		font-weight normal
-		link-gradation @color, 2px
+
+.logo
+	background url(/images/logo--gray.svg) no-repeat
+	background-size 63px auto
+	size 86px
+	cursor pointer
+
+	font-size 49px
+	box-sizing border-box
+	padding 2px 55px
+	&:after
+		content 'Fight'
+		text-decoration underline

@@ -5,10 +5,17 @@ head
 	link(rel='stylesheet' href='/generated/main.css')
 	script(src='/generated/app.js')
 body
-	.top-bg
-	header.header
-		.logo.header__logo(onclick="location.href='index'") CT
-		a.header__link.btn(href='index') что это?
-		a.header__link.btn(href='teams') участники
-		a.header__link.btn.btn--important.btn--shine(href='request') участвовать
-	block content
+	.wrap
+		.top-bg
+		header.header
+			.logo.header__logo(onclick="location.href='index'") CT
+			a.header__link.btn(href='index') что это?
+			a.header__link.btn(href='teams') участники
+			a.header__link.btn.btn--important.btn--shine(href='request') участвовать
+		block content
+		footer.footer
+			a.link.footer__link github
+			a.link.footer__link e-mail
+			.logo.footer__logo CT
+			a.link.footer__link twitter
+			a.link.footer__link vk
