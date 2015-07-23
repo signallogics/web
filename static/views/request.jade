@@ -1,6 +1,22 @@
 extends layout
 
 block content
-	h1 request
-	p text
-	a(href='index') index
+	form(method='post').request-form
+		.input--rich
+			input.input(placeholder='Название команды')
+			.input--mark
+		.input--rich
+			input.input
+		.input--rich
+			input.input
+		.input--rich
+			input.input
+		.input--rich
+			input.input
+		.input--rich
+			input.input
+		.input--rich
+			input.input
+		.input--rich
+			input(type='submit').btn.btn--submit.request-form__submit
+	
