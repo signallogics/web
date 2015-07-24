@@ -15,3 +15,17 @@ link-gradation(color, underline-size)
 	&:active
 		color tint(color, 40%)
 		box-shadow 0 underline-size 0 0 @color
+
+// Fonts mixin
+font-url(file)
+	return 'fonts/' + file
+
+webfont(family, file, weight = normal)
+	@font-face
+		font-family family
+		file += '/' + file
+		src url(font-url(file + '.eot')),
+				url(font-url(file + '.woff')) format('woff'),
+				url(font-url(file + '.ttf')) format('truetype')
+		font-weight weight
+		font-style normal
