@@ -13,6 +13,21 @@ app.use (req, res, next) ->
 	console.log "#{req.method} #{req.url}"
 	do next
 
+# data #
+
+teams = [
+	name: 'keva'
+	logo: 'http://keva.su/uploads/2013/11/keva.png'
+	info: 'Томск, ТУСУР'
+,
+	name: 'Команда'
+	logo: undefined
+	info: 'Новосибирск, НовГУ'
+,
+	name: 'Команда 2'
+	logo: undefined
+	info: 'Москва, МГУ'
+]
 
 # main pages #
 
@@ -23,7 +38,7 @@ app.get '/request', (req, res) ->
 	res.render 'request'
 
 app.get '/teams', (req, res) ->
-	res.render 'teams'
+	res.render 'teams', teamsTitle: 'Первый тур', teams: teams
 
 
 # development #

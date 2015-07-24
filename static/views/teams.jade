@@ -1,4 +1,16 @@
 extend layout
 
 block content
-	h1 Teams
+	.teams-block
+		.teams-block__title= teamsTitle
+		.teams-block__teams
+			each team, index in teams
+				.team(class="team--#{index % 2 == 0 ? 'left' : 'right'}")
+					.team__name= team.name
+					.team__info= team.info
+					//- base64 data is 1x1 transparent image
+					img.team__logo(src= team.logo ? team.logo : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' class= team.logo ? '' : 'team__logo--empty')
+			if teams.length < 8
+				.team
+					img.team__logo.team__plus(onclick="location.href='/request'" src= 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+
