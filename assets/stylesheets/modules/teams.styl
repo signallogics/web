@@ -1,0 +1,44 @@
+
+.teams-block
+	// background color_martinique
+	&__title
+		font-size 25px
+		text-align center
+
+	&__teams
+		margin 0 auto
+		width 424px
+
+.team
+	position relative
+	display inline-table
+	margin 15px 30px
+	&--left
+		.team__name, .team__info
+			right 160px
+	&--right
+		.team__name, .team__info
+			left 160px
+	&__name, &__info
+		absolute: top 10px
+		white-space nowrap
+	&__name
+		color color_east-side
+	&__info
+		margin-top 25px
+		font-weight 100
+		color color_east-side
+	&__logo
+		size 150px
+		border 1px solid color_blue-marguerite
+		border-radius 5px
+		&--empty
+			background color_ebony-clay url(/images/no-logo.svg) no-repeat center bottom
+	&__plus
+		background color_ebony-clay url(/images/plus-logo.svg) no-repeat center
+		cursor pointer
+		&:hover
+			background-color tint(color_ebony-clay, 5%)
+		&:active
+			background-color tint(color_ebony-clay, 10%)
+
