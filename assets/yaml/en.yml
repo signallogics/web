@@ -1,1 +1,28 @@
-main: main
+main: main # главная
+teams: teams # команды
+index_title: CTFight
+request_title: # Участвовать в CTFight
+teams_title: CTFight | Teams # CTFight | Команды
+remind_me: Remind me # Напомнить
+remind_about_start: Remind about tournament start # Напомнить о начале турнира
+service_example: service example # пример сервиса
+write_up_example: write up example # пример видео-разбора
+regulation: regulation # регламент
+take_part: take part # принять участие
+
+# placeholders
+team_name: Team name # Название команды
+logo_link_or_file: Logo (link or file) # Логотип (ссылка или файл)
+city: City # город
+university: University # Университет
+service_link_or_file: Service (link or file) # Сервис (ссылка или файл)
+write_up_link_or_file: Write Up (link or file) # Видео-разбор (ссылка или файл)
+author_or_authors: Author or authors of service # Автор или авторы сервиса
+
+# submit
+send_request: send request # отправить заявку
+
+?: # участвовать
+
+what_is_ctfight: About
+small_rulers: Small rulers

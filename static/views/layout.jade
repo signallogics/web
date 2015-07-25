@@ -1,6 +1,6 @@
 doctype
 head
-	title Участвовать в CTFight
+	title= title
 	meta(charset='utf-8')
 	link(rel='stylesheet' href='/generated/main.css')
 	script(src='/generated/app.js')
@@ -10,7 +10,7 @@ body
 		header.header
 			.logo.header__logo(onclick="location.href='index'") CTFight
 			a.header__link.btn(href='index')= __('main')
-			a.header__link.btn(href='teams') участники
+			a.header__link.btn(href='teams')= __('teams')
 			a.header__link.btn.btn--important.btn--shine(href='request') участвовать
 		block content
 	footer.footer

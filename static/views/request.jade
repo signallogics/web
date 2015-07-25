@@ -4,7 +4,7 @@ block content
 	form(method='post' id='request-form').request-form
 		each input, index in requestForm.fields
 			.input--rich.request-form__input
-				input.input(form='request-form' name="#{input.name}" placeholder="#{input.placeholder}" autofocus= index == 0)
+				input.input(form='request-form' name="#{input.name}" placeholder="#{__(input.placeholder)}" autofocus= index == 0)
 				if input.mark
 					.input--mark(data-title="#{input.mark}")
 				if input.file
@@ -19,4 +19,4 @@ block content
 							.tip__text= input.tip.text
 
 		.input--rich.request-form__input
-			input(type='submit' value='#{requestForm.submit.text}').btn.btn--submit.request-form__submit
+			input(type='submit' value=__(requestForm.submit.text)).btn.btn--submit.request-form__submit

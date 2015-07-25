@@ -3,17 +3,17 @@ extends layout
 block content
 	.index-top
 		img(src="/images/big-logo.svg", alt="").index-top__logo
-		.index-top__info Здесь объясняется, что такое CTF и зачем нужен турнир. Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я.
+		.index-top__info= __('what_is_ctfight')
 		form.remind-form
-			.input--rich.remind-form__input(data-info= 'Напомнить о начале турнира')
+			.input--rich.remind-form__input(data-info= __('remind_about_start'))
 				input.input.input--shine(placeholder='e-mail')
-			input.btn.btn--submit(type= 'submit' value= 'напомнить').remind-form__submit
+			input.btn.btn--submit(type= 'submit' value= __('remind_me')).remind-form__submit
 	.index-rulers
 		.index-rulers__wrap
-			.index-rulers__info В турнире участвуют 8 команд. Будет сыграно 7 небольших игр. Игра длится 2 часа В каждой игре будут участвовать только две команды и будет использован только один сервис. В финальной игре будет использовано два оставшихся сервиса. Любая команда принимается в участие только при наличии сервиса и видео к нему. После каждой игры будет объявлен победитель и выложено видео от автора по разбору сервиса.
+			.index-rulers__info= __('small_rulers')
 			.index-rulers__download
-				a.btn.btn--submit.btn--shine(href='#service-example') пример сервиса
-				a.btn.btn--submit.btn--shine(href='https://youtube.com') пример видео-разбора
-				a.btn.btn--submit.btn--shine(href='#regulation') регламент
+				a.btn.btn--submit.btn--shine(href='#service-example')= __('service_example')
+				a.btn.btn--submit.btn--shine(href='https://youtube.com')= __('write_up_example')
+				a.btn.btn--submit.btn--shine(href='#regulation')= __('regulation')
 	.do-it
-		a.btn.btn--important.btn--shine.do-it__btn(href= 'request') принять участие
+		a.btn.btn--important.btn--shine.do-it__btn(href= 'request')= __('take part')
