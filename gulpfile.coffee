@@ -5,6 +5,7 @@ source = require 'vinyl-source-stream'
 streamify = require 'gulp-streamify'
 watchify = require 'watchify'
 gulp = require 'gulp'
+yaml = require 'gulp-yaml'
 
 # css
 stylus = require 'gulp-stylus'
@@ -22,6 +23,7 @@ gulpif = require 'gulp-if'
 sync = require 'browser-sync'
 notify = require 'gulp-notify'
 plumber = require 'gulp-plumber'
+rename = require 'gulp-rename'
 
 production = no
 production = args.p or args.production
@@ -30,6 +32,7 @@ paths =
   browserify: './assets/scripts/app.coffee'
   frontEndOutput: 'app.js'
   html: './assets/template/*.html'
+  yaml: './assets/yaml/*.yml'
   stylus: './assets/stylesheets/*.styl'
   deep_stylus: './assets/stylesheets/**/*.styl'
   jade: './static/views/*.jade'
@@ -73,6 +76,14 @@ gulp.task 'browserify', ->                 # compile (slow)
 gulp.task 'watchjs', ->                    # watch and compile (first time slow, after fast)
   buildScript paths.browserify, yes
 
+gulp.task 'yaml', ->
+  gulp.src paths.yaml
+    .pipe plumber errorHandler: notify.onError "Error: <%= error.message %>"
+    .pipe yaml space: 2
+    .pipe rename extname: '.js'
+    .pipe gulp.dest './locales/'
+
+
 gulp.task 'stylus', ->
   gulp.src(paths.stylus)
     .pipe plumber errorHandler: notify.onError "Error: <%= error.message %>"
@@ -101,9 +112,11 @@ gulp.task 'browser-sync', ->
         snippet + match
 
 gulp.task 'default', ->
-  run 'stylus', 'browserify'
+  run 'yaml', 'stylus', 'browserify'
 
 gulp.task 'watch', ['browser-sync', 'watchjs'], ->
+  gulp.watch paths.yaml, ['yaml']
+    .on 'change', sync.reload
   gulp.watch paths.deep_stylus, ['stylus']
   gulp.watch paths.jade
     .on 'change', sync.reload
