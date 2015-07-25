@@ -24,14 +24,14 @@ teams = [
 requestForm =
 	fields: [
 		name: 'teamName'
-		placeholder: 'Название команды'
+		placeholder: 'team_name'
 		mark: 'Обязательно'
 		tip:
 			title: 'Название команды'
 			text: 'Вы сможете изменить название позже'
 	,
 		name: 'logoLink'
-		placeholder: 'Логотип (ссылка или файл)'
+		placeholder: 'logo_link_or_file'
 		file:
 			text: 'выбрать'
 			name: 'logoFile'
@@ -40,19 +40,19 @@ requestForm =
 			text: 'Вставьте ссылку или выберите файл с компьютера. Размер файла должен быть не менее 100x100 и не более 1000x1000.'
 	,
 		name: 'city'
-		placeholder: 'Город'
+		placeholder: 'city'
 		tip:
 			title: 'Город'
 			text: 'Укажите город или города, если у вас сборная команда'
 	,
 		name: 'university'
-		placeholder: 'Университет'
+		placeholder: 'university'
 		tip:
 			title: 'Университет'
 			text: 'Укажите университет или университеты, если у вас сборная команда. Вы можете оставить это поле пустым, если не учитесь.'
 	,
 		name: 'serviceLink'
-		placeholder: 'Сервис (ссылка или файл)'
+		placeholder: 'Service (link or file)'
 		mark: 'Обязательно'
 		file:
 			text: 'выбрать'
@@ -62,7 +62,7 @@ requestForm =
 			text: 'Вставьте ссылку или выберите файл. Сервис должен содержать не менее двух уязвимостей. Не забудьте добавить deb-package или инструкцию по установке. Железо для запуска сервиса предоставляет команда keva.'
 	,
 		name: 'videoLink'
-		placeholder: 'Видео-разбор (ссылка или файл)'
+		placeholder: 'write_up_link_or_file'
 		mark: 'Обязательно'
 		file:
 			text: 'выбрать'
@@ -72,13 +72,13 @@ requestForm =
 			text: 'Разбор уязвимостей. Постарайтесь уложиться в 20 минут.'
 	,
 		name: 'author'
-		placeholder: 'Автор или авторы сервиса'
+		placeholder: 'author_or_authors'
 		tip:
 			title: 'Автор или авторы сервиса'
 			text: 'Добавьте автора, авторов и/или команду, разработавшую сервис. По умолчанию это ваша команда.'
 	]
 	submit:
-		text: 'отправить заявку'
+		text: 'send_request'
 
 module.exports =
 	teams: teams

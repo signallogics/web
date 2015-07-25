@@ -1,5 +1,5 @@
 Cookie = require 'js-cookie'
-Cookie.set 'locale', 'ru'
+Cookie.set 'locale', 'en'
 
 # save request-form to cookie
 fields = ['teamName', 'logoLink', 'logoFile', 'city', 'university', 'serviceLink', 'serviceFile', 'videoLink', 'videoFile', 'author']

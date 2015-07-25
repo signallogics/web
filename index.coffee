@@ -35,16 +35,16 @@ _data = require './data.coffee'
 # main pages #
 
 app.get ['/', '/index'], (req, res) ->
-	res.render 'index'
+	res.render 'index', title: req.i18n.__('index_title')
 
 app.route '/request'
 	.get (req, res) ->
-		res.render 'request', requestForm: _data.requestForm
+		res.render 'request', requestForm: _data.requestForm, title: req.i18n.__('request_title')
 	.post (req, res) ->
 		res.redirect 'index'
 
 app.get '/teams', (req, res) ->
-	res.render 'teams', teamsTitle: 'Первый тур', teams: _data.teams
+	res.render 'teams', teamsTitle: 'Первый тур', teams: _data.teams, title: req.i18n.__('teams_title')
 
 
 # development #
