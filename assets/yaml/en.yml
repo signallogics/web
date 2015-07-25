@@ -13,20 +13,38 @@ take_part: take part # принять участие
 # placeholders
 team_name: Team name # Название команды
 logo_link_or_file: Logo (link or file) # Логотип (ссылка или файл)
-city: City # город
+city: City # Город
 university: University # Университет
 service_link_or_file: Service (link or file) # Сервис (ссылка или файл)
-write_up_link_or_file: Write Up (link or file) # Видео-разбор (ссылка или файл)
+video_write_up_link_or_file: Video write up (link or file) # Видео-разбор (ссылка или файл)
 author_or_authors: Author or authors of service # Автор или авторы сервиса
 
 # others
 necessary: Necessary # Обязательно
 choose: choose # выбрать
 
+# tip's titles
+logo: Logo # Логотип
+service: Service # Сервис
+
+# tip's texts
+tip_team_name: '?' # Вы сможете изменить название позже
+tip_logo_link_or_file: '?' # Вставьте ссылку или выберите файл с компьютера. Размер файла должен быть не менее 100x100 и не более 1000x1000.
+tip_city: '?' # Укажите город или города, если у вас сборная команда
+tip_university: '?' # Укажите университет или университеты, если у вас сборная команда. Вы можете оставить это поле пустым, если не учитесь.
+tip_service_link_or_file: '?' # Вставьте ссылку или выберите файл. Сервис должен содержать не менее двух уязвимостей. Не забудьте добавить deb-package или инструкцию по установке. Железо для запуска сервиса предоставляет команда keva.
+tip_video_write_up_link_or_file: '?' # Разбор уязвимостей. Постарайтесь уложиться в 20 минут.
+tip_author_or_authors: '?' # Добавьте автора, авторов и/или команду, разработавшую сервис. По умолчанию это ваша команда.
+
+# tours
+first_tour: First tour # Первый тур
+second_tour: Second tour # Второй тур
+third_tour: Third tour # Третий тур
+
 # submit
 send_request: send request # отправить заявку
 
 
-?: # участвовать
-what_is_ctfight: ?
-small_rulers: ?
+'?': # участвовать
+what_is_ctfight: '?'
+small_rulers: '?'

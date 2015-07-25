@@ -2,7 +2,7 @@ extend layout
 
 block content
 	.teams-block
-		.teams-block__title= teamsTitle
+		.teams-block__title= __('first_tour')
 		.teams-block__teams
 			each team, index in teams
 				.team(class="team--#{index % 2 == 0 ? 'left' : 'right'}")
