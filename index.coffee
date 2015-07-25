@@ -34,8 +34,11 @@ teams = [
 app.get ['/', '/index'], (req, res) ->
 	res.render 'index'
 
-app.get '/request', (req, res) ->
-	res.render 'request'
+app.route '/request'
+	.get (req, res) ->
+		res.render 'request'
+	.post (req, res) ->
+		res.redirect 'index'
 
 app.get '/teams', (req, res) ->
 	res.render 'teams', teamsTitle: 'Первый тур', teams: teams
