@@ -13,7 +13,6 @@ document.addEventListener 'DOMContentLoaded', ->
 			for field in fields
 				localStorage.removeItem "request-form-#{field}"
 
-
 window.onunload = ->
 	form = document.getElementById 'request-form'
 	if form?
