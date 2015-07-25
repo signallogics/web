@@ -9,7 +9,7 @@ body
 		.top-bg
 		header.header
 			.logo.header__logo(onclick="location.href='index'") CTFight
-			a.header__link.btn(href='index') главная
+			a.header__link.btn(href='index')= __('main')
 			a.header__link.btn(href='teams') участники
 			a.header__link.btn.btn--important.btn--shine(href='request') участвовать
 		block content

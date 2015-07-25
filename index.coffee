@@ -1,4 +1,6 @@
 express = require 'express'
+i18n = require 'i18n-2'
+cookieParser = require 'cookie-parser'
 
 # express configuration
 
@@ -6,6 +8,19 @@ app = express()
 app.set('views', 'static/views');
 app.set 'view engine', 'jade'
 app.use express.static __dirname + '/static'
+
+app.use do cookieParser
+
+# localization
+
+i18n.expressBind app,
+	locales: ['en', 'ru'],
+	defaultLocale: 'ru'
+	cookieName: 'locale'
+
+app.use (req, res, next) ->
+	req.i18n.setLocale req.cookies.locale
+	do next
 
 
 # logger
