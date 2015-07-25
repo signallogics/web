@@ -37,7 +37,7 @@ requestForm =
 			name: 'logoFile'
 		tip:
 			title: 'logo'
-			text: 'tip_logo_link_or_file'
+			text: 'tip_logo'
 	,
 		name: 'city'
 		placeholder: 'city'
@@ -59,7 +59,7 @@ requestForm =
 			name: 'serviceFile'
 		tip:
 			title: 'service'
-			text: 'tip_Service (link or file)'
+			text: 'tip_service'
 	,
 		name: 'videoLink'
 		placeholder: 'video_write_up_link_or_file'
@@ -69,7 +69,7 @@ requestForm =
 			name: 'videoFile'
 		tip:
 			title: 'Video write up'
-			text: 'tip_video_write_up_link_or_file'
+			text: 'tip_video_write_up'
 	,
 		name: 'author'
 		placeholder: 'author_or_authors'
