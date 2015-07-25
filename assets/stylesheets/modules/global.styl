@@ -28,7 +28,7 @@ body
 	text-decoration none
 	text-transform uppercase
 	cursor pointer
-	padding 22px 25px 18px
+	padding 20px 25px
 	border-radius 5px
 	border solid transparent 1px
 	background transparent
@@ -46,6 +46,7 @@ body
 	&--shine:hover
 		box-shadow 0 0 15px 2px alpha(white, .2)
 	&--submit
+		text-align center
 		background alpha(white, .9)
 		border solid 1px color_wisteria
 		color color_wisteria
@@ -67,8 +68,6 @@ body
 	transition-property color, border, background, box-shadow
 	transition-duration animation_fast
 	outline none
-	&[value]
-		background red
 
 	+placeholder()
 		color color_dim-wisteria
