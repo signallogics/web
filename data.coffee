@@ -27,8 +27,8 @@ requestForm =
 		placeholder: 'team_name'
 		mark: 'necessary'
 		tip:
-			title: 'Название команды'
-			text: 'Вы сможете изменить название позже'
+			title: 'team_name'
+			text: 'tip_team_name'
 	,
 		name: 'logoLink'
 		placeholder: 'logo_link_or_file'
@@ -36,20 +36,20 @@ requestForm =
 			text: 'choose'
 			name: 'logoFile'
 		tip:
-			title: 'Логотип'
-			text: 'Вставьте ссылку или выберите файл с компьютера. Размер файла должен быть не менее 100x100 и не более 1000x1000.'
+			title: 'logo'
+			text: 'tip_logo_link_or_file'
 	,
 		name: 'city'
 		placeholder: 'city'
 		tip:
-			title: 'Город'
-			text: 'Укажите город или города, если у вас сборная команда'
+			title: 'city'
+			text: 'tip_city'
 	,
 		name: 'university'
 		placeholder: 'university'
 		tip:
-			title: 'Университет'
-			text: 'Укажите университет или университеты, если у вас сборная команда. Вы можете оставить это поле пустым, если не учитесь.'
+			title: 'University'
+			text: 'tip_university'
 	,
 		name: 'serviceLink'
 		placeholder: 'Service (link or file)'
@@ -58,24 +58,24 @@ requestForm =
 			text: 'choose'
 			name: 'serviceFile'
 		tip:
-			title: 'Сервис'
-			text: 'Вставьте ссылку или выберите файл. Сервис должен содержать не менее двух уязвимостей. Не забудьте добавить deb-package или инструкцию по установке. Железо для запуска сервиса предоставляет команда keva.'
+			title: 'service'
+			text: 'tip_Service (link or file)'
 	,
 		name: 'videoLink'
-		placeholder: 'write_up_link_or_file'
+		placeholder: 'video_write_up_link_or_file'
 		mark: 'necessary'
 		file:
 			text: 'choose'
 			name: 'videoFile'
 		tip:
-			title: 'Видео-разбор'
-			text: 'Разбор уязвимостей. Постарайтесь уложиться в 20 минут.'
+			title: 'Video write up'
+			text: 'tip_video_write_up_link_or_file'
 	,
 		name: 'author'
 		placeholder: 'author_or_authors'
 		tip:
-			title: 'Автор или авторы сервиса'
-			text: 'Добавьте автора, авторов и/или команду, разработавшую сервис. По умолчанию это ваша команда.'
+			title: 'author_or_author'
+			text: 'tip_author_or_authors'
 	]
 	submit:
 		text: 'send_request'

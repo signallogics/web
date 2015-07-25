@@ -14,9 +14,9 @@ block content
 				if input.tip
 					.tip
 						if input.tip.title
-							.tip__title= input.tip.title
+							.tip__title= __(input.tip.title)
 						if input.tip.text
-							.tip__text= input.tip.text
+							.tip__text= __(input.tip.text)
 
 		.input--rich.request-form__input
 			input(type='submit' value=__(requestForm.submit.text)).btn.btn--submit.request-form__submit
