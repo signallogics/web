@@ -2,6 +2,10 @@
 # save request-form to cookie
 fields = ['teamName', 'logoLink', 'logoFile', 'city', 'university', 'serviceLink', 'serviceFile', 'videoLink', 'videoFile', 'author']
 document.addEventListener 'DOMContentLoaded', ->
+
+	for element in document.querySelectorAll 'a[href*=http]'
+		element.setAttribute 'target', '_blank'
+
 	form = document.getElementById 'request-form'
 	if form?
 		for field in fields
