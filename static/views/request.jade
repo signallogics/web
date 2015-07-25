@@ -6,7 +6,7 @@ block content
 			.input--rich.request-form__input
 				input.input(form='request-form' name="#{input.name}" placeholder="#{__(input.placeholder)}" autofocus= index == 0)
 				if input.mark
-					.input--mark(data-title="#{input.mark}")
+					.input--mark(data-title=__(input.mark))
 				if input.file
 					.input--file
 						.input--file__view= input.file.text

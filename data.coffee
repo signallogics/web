@@ -25,7 +25,7 @@ requestForm =
 	fields: [
 		name: 'teamName'
 		placeholder: 'team_name'
-		mark: 'Обязательно'
+		mark: 'necessary'
 		tip:
 			title: 'Название команды'
 			text: 'Вы сможете изменить название позже'
@@ -33,7 +33,7 @@ requestForm =
 		name: 'logoLink'
 		placeholder: 'logo_link_or_file'
 		file:
-			text: 'выбрать'
+			text: 'choose'
 			name: 'logoFile'
 		tip:
 			title: 'Логотип'
@@ -53,9 +53,9 @@ requestForm =
 	,
 		name: 'serviceLink'
 		placeholder: 'Service (link or file)'
-		mark: 'Обязательно'
+		mark: 'necessary'
 		file:
-			text: 'выбрать'
+			text: 'choose'
 			name: 'serviceFile'
 		tip:
 			title: 'Сервис'
@@ -63,9 +63,9 @@ requestForm =
 	,
 		name: 'videoLink'
 		placeholder: 'write_up_link_or_file'
-		mark: 'Обязательно'
+		mark: 'necessary'
 		file:
-			text: 'выбрать'
+			text: 'choose'
 			name: 'videoFile'
 		tip:
 			title: 'Видео-разбор'

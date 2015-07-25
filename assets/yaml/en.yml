@@ -19,10 +19,14 @@ service_link_or_file: Service (link or file) # Сервис (ссылка или
 write_up_link_or_file: Write Up (link or file) # Видео-разбор (ссылка или файл)
 author_or_authors: Author or authors of service # Автор или авторы сервиса
 
+# others
+necessary: Necessary # Обязательно
+choose: choose # выбрать
+
 # submit
 send_request: send request # отправить заявку
 
-?: # участвовать
 
-what_is_ctfight: About
-small_rulers: Small rulers
+?: # участвовать
+what_is_ctfight: ?
+small_rulers: ?
