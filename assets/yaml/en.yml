@@ -18,7 +18,7 @@ university: University # Университет
 service_link_or_file: Service (link or file) # Сервис (ссылка или файл)
 video_write_up_link_or_file: Video write up (link or file) # Видео-разбор (ссылка или файл)
 author_or_authors: Author or authors of service # Автор или авторы сервиса
-email: e-mail # e-mail
+email: E-mail # e-mail
 
 # others
 necessary: Necessary # Обязательно
