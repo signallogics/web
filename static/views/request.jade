@@ -1,7 +1,7 @@
 extends layout
 
 block content
-	form(method='post' id='request-form').request-form
+	form(method='post')#request-form.request-form
 		each input, index in requestForm.fields
 			.input--rich.request-form__input
 				input.input(form='request-form' name="#{input.name}" placeholder="#{__(input.placeholder)}" autofocus= index == 0)

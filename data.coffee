@@ -30,7 +30,7 @@ requestForm =
 			title: 'team_name'
 			text: 'tip_team_name'
 	,
-		name: 'e-mail'
+		name: 'email'
 		placeholder: 'email'
 		mark: 'necessary'
 		tip:

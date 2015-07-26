@@ -4,10 +4,10 @@ block content
 	.index-top
 		img(src="/images/big-logo.svg", alt="").index-top__logo
 		.index-top__info= __('what_is_ctfight')
-		form.remind-form
+		form(method= 'post')#remind-form.remind-form
 			.input--rich.remind-form__input(data-info= __('remind_about_start'))
-				input.input.input--shine(placeholder='e-mail')
-			input.btn.btn--submit(type= 'submit' value= __('remind_me')).remind-form__submit
+				input.input.input--shine(placeholder='e-mail' name='email' form='remind-form' autofocus)
+			input.btn.btn--submit(type= 'submit' value= __('remind_me') form='remind-form').remind-form__submit
 	.index-rulers
 		.index-rulers__wrap
 			.index-rulers__info= __('small_rulers')
