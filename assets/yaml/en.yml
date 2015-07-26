@@ -52,3 +52,7 @@ send_request: send request # отправить заявку
 participate: participate # участвовать
 what_is_ctfight: '?'
 small_rulers: '?'
+
+defense: 'Defense'
+offense: 'Offense'
+summary: 'Summary'
