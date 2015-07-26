@@ -14,15 +14,15 @@ block content
 							if team.results.defense
 								br
 								em Defense: 
-								strong #{team.results.defense} 
+								span.font-regular #{team.results.defense} 
 							if team.results.offense
 								br
 								em Offense: 
-								strong #{team.results.offense} 
+								span.font-regular #{team.results.offense} 
 							if team.results.offense && team.results.defense
 								br
 								em Summary: 
-								strong #{team.results.defense + team.results.offense}
+								span.font-regular #{team.results.defense + team.results.offense}
 					//- base64 data is 1x1 transparent image
 					img.team__logo(src= team.logo ? team.logo : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' class= team.logo ? '' : 'team__logo--empty')
 			if teams.length < 8
