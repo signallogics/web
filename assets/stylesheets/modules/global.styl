@@ -141,8 +141,12 @@ body
 		transition-duration animation_fast
 	&:focus ~ .tip
 		opacity 1
+		pointer-events auto
 
 .tip
+	&:hover
+		pointer-events auto
+		opacity 1
 	pointer-events none
 	absolute: top -7px left 100%
 	background url(/images/tip__bg.svg) no-repeat
@@ -164,6 +168,9 @@ body
 	transition box-shadow, color
 	transition-duration animation_fast
 	link-gradation @color, 1px
+	&--white
+		color color_blue-chalk
+		link-gradation @color, 1px
 
 .logo
 	background url(/images/logo--gray.svg) no-repeat
