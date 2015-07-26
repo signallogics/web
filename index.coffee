@@ -1,6 +1,7 @@
 express = require 'express'
 i18n = require 'i18n-2'
 cookieParser = require 'cookie-parser'
+bodyParser = require 'body-parser'
 
 # express configuration
 
@@ -10,12 +11,12 @@ app.set 'view engine', 'jade'
 app.use express.static __dirname + '/static'
 
 app.use do cookieParser
+app.use bodyParser.urlencoded extended: yes
 
 # localization
 
 i18n.expressBind app,
-	locales: ['en', 'ru'],
-	defaultLocale: 'ru'
+	locales: ['ru', 'en'],
 	cookieName: 'locale'
 
 app.use (req, res, next) ->
@@ -33,9 +34,11 @@ app.use (req, res, next) ->
 _data = require './data.coffee'
 
 # main pages #
-
-app.get ['/', '/index'], (req, res) ->
-	res.render 'index', title: req.i18n.__('index_title')
+app.route ['/', '/index']
+	.get (req, res) ->
+		res.render 'index', title: req.i18n.__('index_title')
+	.post (req, res) ->
+		res.redirect 'index'
 
 app.route '/request'
 	.get (req, res) ->
