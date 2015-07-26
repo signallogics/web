@@ -1,13 +1,13 @@
 main: main # главная
 teams: teams # команды
 index_title: CTFight
-request_title: # Участвовать в CTFight
+request_title: '?' # Участвовать в CTFight
 teams_title: CTFight | Teams # CTFight | Команды
 remind_me: Remind me # Напомнить
-remind_about_start: Remind about tournament start # Напомнить о начале турнира
+remind_about_start: Remind me about the event # Напомнить о начале турнира
 service_example: service example # пример сервиса
 write_up_example: write up example # пример видео-разбора
-regulation: regulation # регламент
+rulers: rulers # регламент
 take_part: take part # принять участие
 
 # placeholders
@@ -18,6 +18,7 @@ university: University # Университет
 service_link_or_file: Service (link or file) # Сервис (ссылка или файл)
 video_write_up_link_or_file: Video write up (link or file) # Видео-разбор (ссылка или файл)
 author_or_authors: Author or authors of service # Автор или авторы сервиса
+email: e-mail # e-mail
 
 # others
 necessary: Necessary # Обязательно
@@ -26,6 +27,8 @@ choose: choose # выбрать
 # tip's titles
 logo: Logo # Логотип
 service: Service # Сервис
+contact_email: Contact e-mail # Контактный e-mail
+video_write_up: Video write up # Видео-разбор сервиса
 
 # tip's texts
 tip_team_name: '?' # Вы сможете изменить название позже
@@ -35,6 +38,7 @@ tip_university: '?' # Укажите университет или универ�
 tip_service: '?' # Вставьте ссылку или выберите файл. Сервис должен содержать не менее двух уязвимостей. Не забудьте добавить deb-package или инструкцию по установке. Железо для запуска сервиса предоставляет команда keva.
 tip_video_write_up: '?' # Разбор уязвимостей. Постарайтесь уложиться в 20 минут.
 tip_author_or_authors: '?' # Добавьте автора, авторов и/или команду, разработавшую сервис. По умолчанию это ваша команда.
+tip_email: '?'
 
 # tours
 first_tour: First tour # Первый тур
@@ -45,6 +49,6 @@ third_tour: Third tour # Третий тур
 send_request: send request # отправить заявку
 
 
-'?': # участвовать
+participate: participate # участвовать
 what_is_ctfight: '?'
 small_rulers: '?'
