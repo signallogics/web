@@ -2,7 +2,7 @@ Cookie = require 'js-cookie'
 Cookie.set 'locale', 'ru'
 
 # save request-form to cookie
-fields = ['teamName', 'logoLink', 'logoFile', 'city', 'university', 'serviceLink', 'serviceFile', 'videoLink', 'videoFile', 'author']
+fields = ['teamName', 'logoLink', 'logoFile', 'city', 'university', 'serviceLink', 'serviceFile', 'videoLink', 'videoFile', 'author', 'e-mail']
 document.addEventListener 'DOMContentLoaded', ->
 
 	for element in document.querySelectorAll 'a[href*=http]'
@@ -12,6 +12,7 @@ document.addEventListener 'DOMContentLoaded', ->
 	if form?
 		for field in fields
 			val = localStorage.getItem "request-form-#{field}"
+			val = localStorage.getItem 'e-mail' if not val and field is 'e-mail'
 			if val then form[field].value = val
 
 		form.onsubmit = ->
