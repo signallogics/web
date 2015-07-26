@@ -55,11 +55,11 @@ requestForm =
 		name: 'university'
 		placeholder: 'university'
 		tip:
-			title: 'University'
+			title: 'university'
 			text: 'tip_university'
 	,
 		name: 'serviceLink'
-		placeholder: 'Service (link or file)'
+		placeholder: 'service_link_or_file'
 		mark: 'necessary'
 		file:
 			text: 'choose'
@@ -75,13 +75,13 @@ requestForm =
 			text: 'choose'
 			name: 'videoFile'
 		tip:
-			title: 'Video write up'
+			title: 'video_write_up'
 			text: 'tip_video_write_up'
 	,
 		name: 'author'
 		placeholder: 'author_or_authors'
 		tip:
-			title: 'author_or_author'
+			title: 'author_or_authors'
 			text: 'tip_author_or_authors'
 	]
 	submit:
