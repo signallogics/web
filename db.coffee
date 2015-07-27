@@ -28,6 +28,6 @@ module.exports =
 	###
 	addEmail: (email) ->
 		team = new Team email: email
-		team.save (err, team) ->
+		Team.update email: email, team, upsert: true, (err, team) ->
 			if err then return console.error err
 			return yes
