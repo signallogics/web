@@ -3,14 +3,27 @@ i18n = require 'i18n-2'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
 multer = require 'multer'
+path = require 'path'
+crypto = require 'crypto'
 morgan = require 'morgan'
 
+storage = multer.diskStorage
+	destination: (req, file, cb) ->
+		publicFields = ['logo']
+		if req.query.form in publicFields
+			cb(null, './static/uploads/')
+		else
+			cb(null, './uploads/')
+	filename: (req, file, cb) ->
+		crypto.pseudoRandomBytes 16, (err, raw) ->
+			ext = path.extname file.originalname
+			cb null, "#{raw.toString 'hex'}_#{do Date.now}_#{file.originalname.replace /[^\w\d]/g, '_'}"
+
 upload = multer
-	dest: 'uploads/'
+	storage: storage
 	limits:
 		fieldNameSize : 100000
 		fieldSize : 5242880
-	onFileUploadData: -> console.log 'cat'
 
 # express configuration
 
@@ -46,14 +59,14 @@ app.route ['/', '/index']
 	.get (req, res) ->
 		res.render 'index', title: req.i18n.__('index_title')
 	.post (req, res) ->
-		db.team.addOnlyEmail req.body.email
+		db.teams.addOnlyEmail req.body.email
 		res.redirect 'index'
 
 app.route '/request'
 	.get (req, res) ->
 		res.render 'request', requestForm: _data.requestForm, title: req.i18n.__('request_title')
 	.post (req, res) ->
-		if db.team.add req.body
+		if db.teams.add req.body
 			res.redirect 'index'
 
 app.get '/teams', (req, res) ->
