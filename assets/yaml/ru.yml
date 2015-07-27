@@ -42,3 +42,7 @@ small_rulers: В турнире участвуют 8 команд. Будет с
 defense: 'Защита'
 offense: 'Атака'
 summary: 'Итог'
+
+register_is_open: Зарегистрированно %s из 8.
+register_is_in_next_time: На ближайший тур зарегистрированно 8 из 8 команд. На следующий %s из 8.
+register_is_inaccessible: Регистрация на ближайшие игры закончилась.

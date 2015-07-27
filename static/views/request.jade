@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	.request-message!= message
 	form(method='post')#request-form.request-form
 		each input, index in requestForm.fields
 			.input--rich.request-form__input
