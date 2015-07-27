@@ -1,5 +1,5 @@
 module.exports = (element, form) ->
-	url = '/upload'
+	url = "/upload?form=#{form.id}"
 	xhr = new XMLHttpRequest()
 	fd = new FormData(form)
 

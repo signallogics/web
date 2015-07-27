@@ -19,8 +19,9 @@ teamSchema = mongoose.Schema
 		pathType: String
 		path: String
 	author: String
-	defense: Number
-	offense: Number
+	results:
+		defense: Number
+		offense: Number
 
 Team = mongoose.model 'Team', teamSchema
 
@@ -29,7 +30,7 @@ Team = mongoose.model 'Team', teamSchema
 module.exports =
 
 
-	team:
+	teams:
 
 		###*
 		#	Adding team with one email field to database
@@ -85,4 +86,7 @@ module.exports =
 				if err then return console.error err
 
 			return yes
+
+		list: ->
+			console.log 'teams.list'
 

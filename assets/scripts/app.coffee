@@ -7,7 +7,7 @@ upload = require './upload.coffee'
 formCheck = require './form-check.coffee'
 
 # save request-form to cookie
-fields = ['teamName', 'email', 'city', 'university', 'author']
+fields = ['teamName', 'email', 'info', 'author']
 document.addEventListener 'DOMContentLoaded', ->
 
 	for element in document.querySelectorAll 'a[href*=http]'
