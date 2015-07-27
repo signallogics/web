@@ -42,11 +42,14 @@ app.use (req, res, next) ->
 
 _data = require './data.coffee'
 
+db = require './db.coffee'
+
 # main pages #
 app.route ['/', '/index']
 	.get (req, res) ->
 		res.render 'index', title: req.i18n.__('index_title')
 	.post (req, res) ->
+		db.addEmail req.body.email
 		res.redirect 'index'
 
 app.route '/request'
