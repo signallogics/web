@@ -36,11 +36,12 @@ module.exports =
 		#	Adding team with one email field to database
 		#	@param [string] email
 		###
-
 		addOnlyEmail: (email) ->
 			team = new Team email: email
 			Team.update email: email, team, upsert: true, (err, team) ->
+				# TODO: Write error to logs
 				if err then return console.error err
+
 
 		###*
 		#	Adding team with all fields
@@ -54,7 +55,6 @@ module.exports =
 		# 	@option  [string] logo
 		# 	@option  [string] logoLink
 		###
-
 		add: (data) ->
 			unless data.teamName \
 				and  data.email \
@@ -62,7 +62,7 @@ module.exports =
 				and (data.video or data.videoLink)
 					return no
 			team = {}
-			team.teamName = data.teamName
+			team.name = data.teamName
 			team.email = data.email if data.email
 			team.info = data.info if data.info
 			team.author = data.author if data.author
@@ -83,10 +83,21 @@ module.exports =
 			team.video = choiceType data.video, data.videoLink
 
 			Team.update email: team.email, team, upsert: true, (err, team) ->
+				# TODO: Write error to logs
 				if err then return console.error err
 
 			return yes
 
-		list: ->
-			console.log 'teams.list'
+
+		###*
+		#	Getting all teams
+		#	@return [array] teams
+		###
+		list: (callback) ->
+			Team.find name: $exists: yes, (err, teams) ->
+				if err
+					# TODO: Write error to logs
+					console.error err
+
+				callback err, teams
 

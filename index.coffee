@@ -70,9 +70,12 @@ app.route '/request'
 			res.redirect 'index'
 
 app.get '/teams', (req, res) ->
-	res.render 'teams', teamsTitle: 'Первый тур', teams: _data.teams, title: req.i18n.__('teams_title')
+	db.teams.list (err, teams) ->
+		unless err?
+			res.render 'teams', teamsTitle: 'Первый тур', teams: teams, title: req.i18n.__('teams_title')
 
 app.post '/upload', upload.single('file'), (req, res) ->
+	req.file.path = req.file.path.replace 'static/', '' # static break links
 	res.send req.file
 
 
