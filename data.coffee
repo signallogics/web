@@ -37,6 +37,12 @@ requestForm =
 			title: 'contact_email'
 			text: 'tip_email'
 	,
+		name: 'contacts'
+		placeholder: 'contacts'
+		tip:
+			title: 'contact_details'
+			text: 'tip_contacts'
+	,
 		name: 'logoLink'
 		placeholder: 'logo_link_or_file'
 		file:

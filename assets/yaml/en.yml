@@ -12,12 +12,13 @@ take_part: take part # принять участие
 
 # placeholders
 team_name: Team name # Название команды
+email: E-mail # e-mail
+contacts: Contacts # Контакты
 logo_link_or_file: Logo (link or file) # Логотип (ссылка или файл)
 info: City and university # Город и университет
 service_link_or_file: Service (link or file) # Сервис (ссылка или файл)
 video_write_up_link_or_file: Video write up (link or file) # Видео-разбор (ссылка или файл)
 author_or_authors: Author or authors of service # Автор или авторы сервиса
-email: E-mail # e-mail
 
 # others
 necessary: Necessary # Обязательно
@@ -28,15 +29,17 @@ logo: Logo # Логотип
 service: Service # Сервис
 contact_email: Contact e-mail # Контактный e-mail
 video_write_up: Video write up # Видео-разбор сервиса
+contact_details: Contact details # Контактная информация
 
 # tip's texts
 tip_team_name: '?' # Вы сможете изменить название позже
+tip_email: '?'
+tip_contacts: Include phone of captain's and service author # Укажите телефоны капитана и автора сервиса
 tip_logo: '?' # Вставьте ссылку или выберите файл с компьютера. Размер файла должен быть не менее 100x100 и не более 1000x1000.
 tip_info: '?' # Укажите город или университет
 tip_service: '?' # Вставьте ссылку или выберите файл. Сервис должен содержать не менее двух уязвимостей. Не забудьте добавить deb-package или инструкцию по установке. Железо для запуска сервиса предоставляет команда keva.
 tip_video_write_up: '?' # Разбор уязвимостей. Постарайтесь уложиться в 20 минут.
 tip_author_or_authors: '?' # Добавьте автора, авторов и/или команду, разработавшую сервис. По умолчанию это ваша команда.
-tip_email: '?'
 
 # tours
 first_tour: First tour # Первый тур
