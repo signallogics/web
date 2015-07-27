@@ -1,0 +1,23 @@
+module.exports = (element, form) ->
+	url = '/upload'
+	xhr = new XMLHttpRequest()
+	fd = new FormData(form)
+
+	textField = element.parentElement.parentElement.querySelector 'input'
+	progressBar = element.parentElement.parentElement.querySelector '.input--file__view__progress'
+	hiddenField = element.parentElement.querySelector '[type="hidden"]'
+
+	xhr.open 'post', url, true
+
+	xhr.onreadystatechange = ->
+		if xhr.readyState is 4 and xhr.status is 200
+			data = JSON.parse xhr.responseText
+			textField.value = data.originalname
+			textField.disabled = yes
+			hiddenField.value = data.path
+
+	xhr.upload.onprogress = (e) ->
+		progress = (e.position or e.loaded) / (e.totalSize or e.total)
+		progressBar.setAttribute 'data-percent', Math.floor progress * 100
+
+	xhr.send fd

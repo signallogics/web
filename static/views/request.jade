@@ -4,13 +4,16 @@ block content
 	form(method='post')#request-form.request-form
 		each input, index in requestForm.fields
 			.input--rich.request-form__input
-				input.input(form='request-form' name="#{input.name}" placeholder="#{__(input.placeholder)}" autofocus= index == 0)
+				input.input(form= 'request-form' name=input.name placeholder=__(input.placeholder) autofocus= index == 0)
 				if input.mark
 					.input--mark(data-title=__(input.mark))
 				if input.file
 					.input--file
-						.input--file__view= __(input.file.text)
-						input.input--file__input(form='request-form' name="#{input.file.name}" type='file')
+						.input--file__view
+							div= __(input.file.text)
+							.input--file__view__progress(data-percent='0')
+						input.input--file__input(form=input.file.name name='file' type='file')
+						input(type='hidden' form='request-form' name=input.file.name)
 				if input.tip
 					.tip
 						if input.tip.title
@@ -20,3 +23,8 @@ block content
 
 		.input--rich.request-form__input
 			input(type='submit' value=__(requestForm.submit.text)).btn.btn--submit.request-form__submit
+
+	each input in requestForm.fields
+		if input.file
+			form(id=input.file.name enctype='multipart/form-data')
+

@@ -2,6 +2,14 @@ express = require 'express'
 i18n = require 'i18n-2'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
+multer = require 'multer'
+
+upload = multer
+	dest: 'uploads/'
+	limits:
+		fieldNameSize : 100000
+		fieldSize : 5242880
+	onFileUploadData: -> console.log 'cat'
 
 # express configuration
 
@@ -11,7 +19,8 @@ app.set 'view engine', 'jade'
 app.use express.static __dirname + '/static'
 
 app.use do cookieParser
-app.use bodyParser.urlencoded extended: yes
+app.use do bodyParser.json
+app.use bodyParser.urlencoded extended: yes, limit: 100000000
 
 # localization
 
@@ -44,10 +53,15 @@ app.route '/request'
 	.get (req, res) ->
 		res.render 'request', requestForm: _data.requestForm, title: req.i18n.__('request_title')
 	.post (req, res) ->
+		console.log req.body
 		res.redirect 'index'
 
 app.get '/teams', (req, res) ->
 	res.render 'teams', teamsTitle: 'Первый тур', teams: _data.teams, title: req.i18n.__('teams_title')
+
+app.post '/upload', upload.single('file'), (req, res) ->
+	console.log req.file
+	res.send req.file
 
 
 # development #

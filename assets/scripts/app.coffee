@@ -1,4 +1,7 @@
 Cookie = require 'js-cookie'
+
+upload = require './upload.coffee'
+
 # Cookie.set 'locale', 'ru'
 
 formCheck = require './form-check.coffee'
@@ -22,6 +25,10 @@ document.addEventListener 'DOMContentLoaded', ->
 			do form.reset
 			for field in fields
 				localStorage.removeItem "request-form-#{field}"
+
+		for element in document.querySelectorAll('.input--file__input')
+			element.onchange = (e) ->
+				upload e.srcElement, this.form
 
 	formCheck 'remind-form', email: 'email'
 	formCheck 'request-form',
