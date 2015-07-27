@@ -24,8 +24,8 @@ block content
 								em #{__('summary')}: 
 								span.font-regular #{team.results.defense + team.results.offense}
 					//- base64 data is 1x1 transparent image
-					img.team__logo(src= team.logo ? team.logo : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' class= team.logo ? '' : 'team__logo--empty')
+					img.team__logo(src= team.logo.path ? team.logo.path : 'images/transparent.gif' class= team.logo.path ? '' : 'team__logo--empty')
 			if teams.length < 8
 				.team
-					img.team__logo.team__plus(onclick="location.href='/request'" src= 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+					img.team__logo.team__plus(onclick="location.href='/request'" src= 'images/transparent.gif')
 
