@@ -127,15 +127,31 @@ body
 		&__view
 			color color_wisteria
 			font-size 18px
-			// padding-top 20px
 			line-height 62px
 			text-transform uppercase
+			height 100%
+			width 100%
+			position relative
+			&__progress
+				absolute: top
+				height 100%
+				width attr(data-percent)
+				background-size 40px 40px
+				background-color alpha(color_lavender, .2)
+				stripes alpha(color_lavender, .4)
+				animation progress-bar-stripes 2s linear infinite
+
+
 		&__input
 			cursor pointer
 			margin-top -50px
 			margin-left -410px
 			opacity 0
 			font-size 150px
+
+	&[disabled]
+		color color_wisteria
+		background color_dim-wisteria
 
 	~ .tip
 		opacity 0
@@ -186,3 +202,14 @@ body
 
 .font-regular
 	font-weight 400
+
+// [data-percent='20'] { width: 20% }
+for num in 1..100
+	[data-percent=\'{num}\'] { width: (num)% }
+
+[data-percent='100']
+	absolute: top
+	height 100%
+	width 100%
+	background alpha(color_lavender, .5)
+	animation none
