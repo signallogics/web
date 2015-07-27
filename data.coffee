@@ -46,17 +46,11 @@ requestForm =
 			title: 'logo'
 			text: 'tip_logo'
 	,
-		name: 'city'
-		placeholder: 'city'
+		name: 'info'
+		placeholder: 'info'
 		tip:
-			title: 'city'
-			text: 'tip_city'
-	,
-		name: 'university'
-		placeholder: 'university'
-		tip:
-			title: 'university'
-			text: 'tip_university'
+			title: 'info'
+			text: 'tip_info'
 	,
 		name: 'serviceLink'
 		placeholder: 'service_link_or_file'
