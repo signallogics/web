@@ -11,8 +11,7 @@ teamSchema = mongoose.Schema
 	logo:
 		pathType: String
 		path: String
-	city: String
-	university: String
+	info: String
 	service:
 		pathType: String
 		path: String
@@ -49,8 +48,7 @@ module.exports =
 		# 	@require [string] email
 		# 	@require [string] service or serviceLink
 		# 	@require [string] video or videoLink
-		# 	@option  [string] city
-		# 	@option  [string] university
+		# 	@option  [string] info
 		# 	@option  [string] author
 		# 	@option  [string] logo
 		# 	@option  [string] logoLink
@@ -65,8 +63,7 @@ module.exports =
 			team = {}
 			team.teamName = data.teamName
 			team.email = data.email if data.email
-			team.city = data.city if data.city
-			team.university = data.university if data.university
+			team.info = data.info if data.info
 			team.author = data.author if data.author
 
 			choiceType = (file, link) ->
