@@ -64,7 +64,15 @@ app.route ['/', '/index']
 
 app.route '/request'
 	.get (req, res) ->
-		res.render 'request', requestForm: _data.requestForm, title: req.i18n.__('request_title')
+		db.teams.list (err, teams) ->
+			unless err?
+				if teams.length < 8
+					message = req.i18n.__('register_is_open', teams.length)
+				else if teams.length < 16
+					message = req.i18n.__('register_is_in_next_time', teams.length - 8)
+				else
+					message = req.i18n.__('register_is_inaccessible')
+				res.render 'request', requestForm: _data.requestForm, message: message, title: req.i18n.__('request_title')
 	.post (req, res) ->
 		if db.teams.add req.body
 			res.redirect 'index'
@@ -72,7 +80,7 @@ app.route '/request'
 app.get '/teams', (req, res) ->
 	db.teams.list (err, teams) ->
 		unless err?
-			res.render 'teams', teamsTitle: 'Первый тур', teams: teams, title: req.i18n.__('teams_title')
+			res.render 'teams', teamsTitle: 'Первый тур', teams: teams.slice(0, 8), title: req.i18n.__('teams_title')
 
 app.post '/upload', upload.single('file'), (req, res) ->
 	req.file.path = req.file.path.replace 'static/', '' # static break links
