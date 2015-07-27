@@ -41,7 +41,7 @@ requestForm =
 		placeholder: 'logo_link_or_file'
 		file:
 			text: 'choose'
-			name: 'logoFile'
+			name: 'logo'
 		tip:
 			title: 'logo'
 			text: 'tip_logo'
@@ -63,7 +63,7 @@ requestForm =
 		mark: 'necessary'
 		file:
 			text: 'choose'
-			name: 'serviceFile'
+			name: 'service'
 		tip:
 			title: 'service'
 			text: 'tip_service'
@@ -73,7 +73,7 @@ requestForm =
 		mark: 'necessary'
 		file:
 			text: 'choose'
-			name: 'videoFile'
+			name: 'video'
 		tip:
 			title: 'video_write_up'
 			text: 'tip_video_write_up'
