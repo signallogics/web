@@ -46,14 +46,14 @@ app.route ['/', '/index']
 	.get (req, res) ->
 		res.render 'index', title: req.i18n.__('index_title')
 	.post (req, res) ->
-		db.addEmail req.body.email
+		db.team.addOnlyEmail req.body.email
 		res.redirect 'index'
 
 app.route '/request'
 	.get (req, res) ->
 		res.render 'request', requestForm: _data.requestForm, title: req.i18n.__('request_title')
 	.post (req, res) ->
-		if db.addTeam req.body
+		if db.team.add req.body
 			res.redirect 'index'
 
 app.get '/teams', (req, res) ->
