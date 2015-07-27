@@ -3,6 +3,7 @@ i18n = require 'i18n-2'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
 multer = require 'multer'
+morgan = require 'morgan'
 
 upload = multer
 	dest: 'uploads/'
@@ -21,6 +22,7 @@ app.use express.static __dirname + '/static'
 app.use do cookieParser
 app.use do bodyParser.json
 app.use bodyParser.urlencoded extended: yes, limit: 100000000
+app.use morgan 'dev'
 
 # localization
 
@@ -32,11 +34,6 @@ app.use (req, res, next) ->
 	req.i18n.setLocale req.cookies.locale
 	do next
 
-
-# logger
-app.use (req, res, next) ->
-	console.log "#{req.method} #{req.url}"
-	do next
 
 # data #
 
