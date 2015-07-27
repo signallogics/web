@@ -1,4 +1,4 @@
-module.exports = (id, inputs) ->
+module.exports = (id, inputs, callback) ->
 	form = document.getElementById(id)
 	if form
 		form.onsubmit = (e) ->
@@ -24,4 +24,5 @@ module.exports = (id, inputs) ->
 					errorInForm = yes
 			if errorInForm
 				return no
+			return callback e, form
 
