@@ -53,14 +53,13 @@ app.route '/request'
 	.get (req, res) ->
 		res.render 'request', requestForm: _data.requestForm, title: req.i18n.__('request_title')
 	.post (req, res) ->
-		console.log req.body
-		res.redirect 'index'
+		if db.addTeam req.body
+			res.redirect 'index'
 
 app.get '/teams', (req, res) ->
 	res.render 'teams', teamsTitle: 'Первый тур', teams: _data.teams, title: req.i18n.__('teams_title')
 
 app.post '/upload', upload.single('file'), (req, res) ->
-	console.log req.file
 	res.send req.file
 
 
