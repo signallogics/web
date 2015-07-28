@@ -1,9 +1,17 @@
 mongoose = require 'mongoose'
 
-port = 27017
-mongoose.connect "mongodb://localhost:#{port}/ctfight"
+# process.env.MONGO_PORT_27017_TCP_ADDR is wrong, if don't know why
+if process.env.MONGO_PORT_27017_TCP_PORT
+	host = 'mongo'
+	port = process.env.MONGO_PORT_27017_TCP_PORT
+else
+	host = 'localhost'
+	port = 27017
+
+mongoose.connect "mongodb://#{host}:#{port}/ctfight"
 db = mongoose.connection
-db.on 'error', console.error.bind console, 'connection error:'
+db.on 'error', console.error.bind console, 'Connection error:'
+db.once 'open', -> console.log 'Connection open successful'
 
 teamSchema = mongoose.Schema
 	name: String
