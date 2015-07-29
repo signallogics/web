@@ -27,12 +27,18 @@ Admin client at port 4001
 Use this type of installation for development
 
 1. Install [node.js](https://nodejs.org) (`npm` will install automatically)
-2. Install `apt-get install git-core`
-3. Clone repository `git clone https://github.com/ctfight/web.git` ctfight-web
-4. Go to work folder `cd ctfight-web`
-5. Run `npm install -g gulp coffee-script nodemon`
-6. Run `npm install`
-7. _(Optional)_ Configure [mongo-express](https://github.com/andzdroid/mongo-express) if you need admin database client
+1.1 Or install from repository: `sudo apt-get install nodejs-legacy nmp`
+2. Install mongodb: `sudo apt-get install mongodb`
+3. Start mongodb: `sudo /etc/init.d/mongodb start`
+4. Install git: `sudo apt-get install git-core`
+5. Clone repository `git clone https://github.com/ctfight/web.git ctfight-web`
+6. Go to work folder `cd ctfight-web`
+7. Run `npm install -g gulp coffee-script nodemon`
+8. Run `npm install`
+9. _(Optional)_ Configure [mongo-express](https://github.com/andzdroid/mongo-express) if you need admin database client
+10. Run `gulp --production`
+11. Run `npm start`
+12. look your site on `https://<ip>:5000` (defaul port)
 
 ### Development
 Use `gulp` for compiling stylus, yaml and coffeescript (front-end).  
