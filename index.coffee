@@ -6,6 +6,7 @@ multer = require 'multer'
 path = require 'path'
 crypto = require 'crypto'
 morgan = require 'morgan'
+mkdirp = require 'mkdirp'
 
 storage = multer.diskStorage
 	destination: (req, file, cb) ->
@@ -24,6 +25,15 @@ upload = multer
 	limits:
 		fieldNameSize : 100000
 		fieldSize : 5242880
+
+# create folders for uploads if it doesn't exist
+mkdirp 'uploads', (err) ->
+	if err then return console.error err
+	console.log 'Uploads folder created'
+
+mkdirp 'static/uploads', (err) ->
+	if err then return console.error err
+	console.log 'Static/uploads folder created'
 
 # express configuration
 
