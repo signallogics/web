@@ -1,14 +1,14 @@
 # ctfight/web
 
 ## Getting Started
-### Prerequisites
+### What you must have
 * Unix-based operating system (OS X or Linux)
-* `Docker` should be installed
-* `wget` should be installed
+* `Docker` must be installed
+* `wget` must be installed
 
 ### Basic Installation
-CTFight/web is installed by running one of the following command.
-Paste it to your terminal and follow installation instructions.
+To get your CTFight/web you'll need to run one of the following command.
+Paste it into your terminal and follow installation instructions.
 
 ```bash
 sh -c "$(wget https://github.com/ctfight/web/raw/master/install/remote_install.sh -O -)"
@@ -19,9 +19,9 @@ Admin client at port 4001
 (MongoDB at standart 27017 port)  
 
 ##### Basic Installation Contain
-* MongoDB inside `mongo_ctfight` container
-* NodeJS express-based application inside `node_ctfight` container
-* Admin database client (mongo-express) inside `admin_ctfight` container
+* MongoDB inside `mongo_ctfight` container(folder/archive???)
+* NodeJS express-based application inside `node_ctfight` container(same)
+* Admin database client (mongo-express) inside `admin_ctfight` container(same)
 
 ### Manual Installation
 Use this type of installation for development
@@ -43,15 +43,15 @@ Use this type of installation for development
 14. Look your site on `https://<ip>:5000` (default port)
 
 ### Development
-Use `gulp` for compiling stylus, yaml and coffeescript (front-end).  
-Use `gulp watch` for development. It compile files as soon as they change and it run server at `http://localhost:3000`  
-Use `gulp --production` for compiling files for production  
-Use `npm start` for start service at `http://localhost:5000` (You must compile files before)
+Use `gulp` to compile stylus, yaml and coffeescript (front-end).  
+Use `gulp watch` to develop. It compiles files as soon as they change and it runs server at `http://localhost:3000`  
+Use `gulp --production` to compile files for production  
+Use `npm start` to start service at `http://localhost:5000` (You must compile files in first)
 
 ## Using Docker
 _`<container>` is one of `mongo_ctfight`, `node_ctfight` and `admin_ctfight`_
 
-Use `docker start` to start your containers
+Use `docker start` to start your containers(?)
 ```bash
 docker start <container>
 ```
@@ -61,12 +61,12 @@ Similarly use `docker stop`
 docker stop <container>
 ```
 
-Get terminal of running container
+Get terminal of the running container
 ```bash
 docker exec -it <container> bash
 ```
 
-Get list of running process
+Get list of the running process
 ```bash
 docker ps
 ```
@@ -119,7 +119,7 @@ Run boot2docker:
 boot2docker up
 ```
 
-Add boot2docker initialization to your shell config (It is often .bashrc)
+Add boot2docker initialization to your shell config (Usually it's .bashrc)
 ```bash
 echo 'eval "$(boot2docker shellinit)"' >> ~/.bashrc
 ```
