@@ -1,7 +1,7 @@
 # ctfight/web
 
 ## Getting Started
-### What you must have
+### Prerequisites
 * Unix-based operating system (OS X or Linux)
 * `Docker` must be installed
 * `wget` must be installed
@@ -19,9 +19,9 @@ Admin client at port 4001
 (MongoDB at standart 27017 port)  
 
 ##### Basic Installation Contain
-* MongoDB inside `mongo_ctfight` container(folder/archive???)
-* NodeJS express-based application inside `node_ctfight` container(same)
-* Admin database client (mongo-express) inside `admin_ctfight` container(same)
+* MongoDB inside `mongo_ctfight` container
+* NodeJS express-based application inside `node_ctfight` container
+* Admin database client (mongo-express) inside `admin_ctfight` container
 
 ### Manual Installation
 Use this type of installation for development
@@ -51,7 +51,7 @@ Use `npm start` to start service at `http://localhost:5000` (You must compile fi
 ## Using Docker
 _`<container>` is one of `mongo_ctfight`, `node_ctfight` and `admin_ctfight`_
 
-Use `docker start` to start your containers(?)
+Use `docker start` to start your containers
 ```bash
 docker start <container>
 ```
@@ -66,7 +66,7 @@ Get terminal of the running container
 docker exec -it <container> bash
 ```
 
-Get list of the running process
+Get list of running processes
 ```bash
 docker ps
 ```
