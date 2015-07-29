@@ -27,7 +27,7 @@ Admin client at port 4001
 Use this type of installation for development
 
 1. Install [node.js](https://nodejs.org) (`npm` will install automatically)
-1.1 Or install from repository: `sudo apt-get install nodejs-legacy nmp`
+1.1 Or install from repository: `sudo apt-get install nodejs nodejs-legacy npm`
 2. Install mongodb: `sudo apt-get install mongodb`
 3. Start mongodb: `sudo /etc/init.d/mongodb start`
 4. Install git: `sudo apt-get install git-core`
@@ -38,7 +38,7 @@ Use this type of installation for development
 9. _(Optional)_ Configure [mongo-express](https://github.com/andzdroid/mongo-express) if you need admin database client
 10. Run `gulp --production`
 11. Run `npm start`
-12. look your site on `https://<ip>:5000` (defaul port)
+12. Look your site on `https://<ip>:5000` (default port)
 
 ### Development
 Use `gulp` for compiling stylus, yaml and coffeescript (front-end).  
