@@ -7,3 +7,5 @@ wget https://raw.githubusercontent.com/ctfight/web/master/install/admin/Dockerfi
 wget https://raw.githubusercontent.com/ctfight/web/master/install/admin/config.js -O admin/config.js
 
 sh -e install.sh
+cd ..
+rm -r ctfight_install
