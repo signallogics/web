@@ -2,7 +2,7 @@
 
 ## Getting Started
 ### Prerequisites
-* Unix-based operating system (Mac OS X or Linux)
+* Unix-based operating system (OS X or Linux)
 * `Docker` should be installed
 * `wget` should be installed
 
@@ -25,6 +25,7 @@ Admin client at port 4001
 
 ### Manual Installation
 Use this type of installation for development
+
 1. Install [node.js](https://nodejs.org) (`npm` will install automatically)
 2. Clone repository `git clone git@github.com:ctfight/web.git` ctfight-web
 3. Go to work folder `cd ctfight-web`
@@ -67,7 +68,7 @@ For more information use [Docker documentation](https://docs.docker.com)
 
 ## How to install docker
 
-#### Linux
+#### Debian
 Add to /etc/apt/source.list:
 
 ```bash
