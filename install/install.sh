@@ -11,14 +11,6 @@ function rand_string () {
 }
 
 while true; do
-	read -p "Would you like to install mongo? (y/n) " yn
-	case $yn in
-		[Yy]* ) yn_mongo='y'; break;;
-		[Nn]* ) yn_mongo='n'; break;;
-	esac
-done
-
-while true; do
 	read -p "Would you like to install node? (y/n) " yn
 	case $yn in
 		[Yy]* ) yn_node='y'; break;;
@@ -43,13 +35,8 @@ while true; do
 done
 
 
-if [[ "$yn_mongo" = "y" ]]; then
-	docker build -t ctfight_mongo mongo
-	docker run -d --name mongo_ctfight ctfight_mongo mongod --smallfiles
-	if [[ "$yn_start" = "n" ]]; then
-		docker stop mongo_ctfight
-	fi
-fi
+docker build -t ctfight_mongo mongo
+docker run -d --name mongo_ctfight ctfight_mongo mongod --smallfiles
 
 if [[ "$yn_node" = "y" ]]; then
 	docker build -t ctfight_node node
@@ -80,6 +67,6 @@ if [[ "$yn_mongo_express" = "y" ]]; then
 	fi
 fi
 
-clear
-echo '\nNew docker images:'
-docker images | grep ctfight_
+if [[ "$yn_start" = "n" ]]; then
+	docker stop mongo_ctfight
+fi
