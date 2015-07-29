@@ -20,8 +20,8 @@ document.addEventListener 'DOMContentLoaded', ->
 			if val then form[field].value = val
 
 		for element in document.querySelectorAll('.input--file__input')
-			element.onchange = (e) ->
-				upload e.srcElement, this.form
+			element.onchange = ->
+				upload this, this.form
 
 	formCheck 'remind-form', email: 'email'
 	formCheck 'request-form',
