@@ -5,6 +5,7 @@
   "main": "index.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "admin": "nodemon node_modules/mongo-express/app.js",
     "start": "nodemon index.coffee"
   },
   "repository": {
