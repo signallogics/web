@@ -11,7 +11,7 @@ CTFight/web is installed by running one of the following command.
 Paste it to your terminal and follow installation instructions.
 
 ```bash
-sh -c "$(wget https://github.com/ctfight/web/raw/master/install/remote_install.sh -O -)"
+sudo sh -c "$(wget https://github.com/ctfight/web/raw/master/install/remote_install.sh -O -)"
 ```
 
 Site will run at port 4000  
