@@ -89,8 +89,9 @@ module.exports =
 			team.logo = choiceType data.logo, data.logoLink
 			team.service = choiceType data.service, data.serviceLink
 			team.video = choiceType data.video, data.videoLink
+			team.date = do Date.now
 
-			Team.update email: team.email, team, upsert: true, (err, team) ->
+			Team.update email: team.email, name: $exists: no, team, upsert: true, (err, team) ->
 				# TODO: Write error to logs
 				if err then return console.error err
 
