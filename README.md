@@ -37,8 +37,10 @@ Use this type of installation for development
 8. Run `npm install`
 9. _(Optional)_ Configure [mongo-express](https://github.com/andzdroid/mongo-express) if you need admin database client
 10. Run `gulp --production`
-11. Run `npm start`
-12. Look your site on `https://<ip>:5000` (default port)
+11. Copy config file: `cp node_modules/mongo-express/config.default.js node_mod$
+12. Configure: `nano node_modules/mongo-express/config.js`
+13. Run `npm start`
+14. Look your site on `https://<ip>:5000` (default port)
 
 ### Development
 Use `gulp` for compiling stylus, yaml and coffeescript (front-end).  
