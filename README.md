@@ -14,6 +14,9 @@ Paste it to your terminal and follow installation instructions.
 sh -c "$(wget https://github.com/ctfight/web/raw/master/install/remote_install.sh -O -)"
 ```
 
+Site will run at port 4000  
+Admin client at port 4001  
+(MongoDB at standart 27017 port)  
 
 ##### Basic Installation Contain
 * MongoDB inside `mongo_ctfight` container
