@@ -6,6 +6,7 @@ wget https://raw.githubusercontent.com/ctfight/web/master/install/node/Dockerfil
 wget https://raw.githubusercontent.com/ctfight/web/master/install/admin/Dockerfile -O admin/Dockerfile
 wget https://raw.githubusercontent.com/ctfight/web/master/install/admin/config.js -O admin/config.js
 
-sh -e install.sh
+chmod +x install.sh
+./install.sh
 cd ..
 rm -r ctfight_install
