@@ -5,7 +5,7 @@ block content
 		.teams-block__title= __('first_tour')
 		.teams-block__teams
 			each team, index in teams
-				.team(class="team--#{index % 2 == 0 ? 'left' : 'right'}")
+				.team(class="team--#{index % 2 == 0 ? 'left' : 'right'} #{team.verified ? 'team--verified' : '' }")
 					.team__name= team.name
 					.team__info
 						span #{team.info} 
@@ -23,8 +23,9 @@ block content
 								br
 								em #{__('summary')}: 
 								strong #{team.results.defense + team.results.offense}
-					//- base64 data is 1x1 transparent image
 					img.team__logo(src= team.logo.path ? team.logo.path : 'images/transparent.gif' class= team.logo.path ? '' : 'team__logo--empty')
+					.team__verified-mark__wrap
+						.team__verified-mark= team.verified ? 'Заявка одобрена' : 'На рассмотрении'
 			if teams.length < 8
 				.team
 					img.team__logo.team__plus(onclick="location.href='/request'" src= 'images/transparent.gif')
