@@ -65,8 +65,22 @@ app.get '/teams', (req, res) ->
 			res.render 'teams', teamsTitle: 'Первый тур', teams: teams.slice(0, 8), title: req.i18n.__('teams_title')
 
 app.post '/upload', upload.single('file'), (req, res) ->
-	req.file.path = req.file.path.replace 'static/', '' # static break links
-	res.send req.file
+	unless req.file
+		res.send error:
+			code: 1000
+			text: 'Unknown error'
+		return
+
+	unless req.file.error_code
+		req.file.path = req.file.path.replace 'static/', '' # static break links
+		res.send
+			error: null
+			file: req.file
+
+	else
+		res.send error:
+			code: req.file.error_code
+			text: req.file.error_message
 
 
 # development #

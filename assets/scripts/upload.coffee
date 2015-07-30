@@ -12,9 +12,13 @@ module.exports = (element, form) ->
 	xhr.onreadystatechange = ->
 		if xhr.readyState is 4 and xhr.status is 200
 			data = JSON.parse xhr.responseText
-			textField.value = data.originalname
-			textField.disabled = yes
-			hiddenField.value = data.path
+			unless data.error
+				textField.value = data.file.originalname
+				textField.disabled = yes
+				hiddenField.value = data.file.path
+			else
+				# TODO: Error message
+				console.log 'TODO'
 
 	xhr.upload.onprogress = (e) ->
 		progress = (e.position or e.loaded) / (e.totalSize or e.total)
