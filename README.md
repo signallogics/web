@@ -79,23 +79,9 @@ For more information use [Docker documentation](https://docs.docker.com)
 ## How to install docker
 
 #### Debian
-Add to /etc/apt/source.list:
 
 ```bash
-deb http://linux.nsu.ru/debian jessie-backports main contrib non-free
-deb-src http://linux.nsu.ru/debian jessie-backports main contrib non-free
-```
-
-Update cache:
-
-```bash
-apt-get update
-```
-
-Install:
-
-```bash
-apt-get install docker.io
+curl -sSL https://get.docker.com/ | sh
 ```
 
 
