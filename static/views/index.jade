@@ -3,7 +3,7 @@ extends layout
 block content
 	.index-top
 		img(src="/images/big-logo.svg", alt="").index-top__logo
-		.index-top__info= __('what_is_ctfight')
+		.index-top__info!= __('what_is_ctfight')
 		form(method= 'post')#remind-form.remind-form
 			.input--rich.remind-form__input(data-info= __('remind_about_start'))
 				input.input.input--shine(placeholder='e-mail' name='email' form='remind-form')
