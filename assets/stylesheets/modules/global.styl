@@ -85,7 +85,10 @@ body
 
 	&--shine:hover
 		box-shadow 0 0 15px 2px alpha(white, .5)
+	&--shake
+		animation shake .5s linear
 	&--wrong
+		transition box-shadow animation_fast
 		box-shadow 0 0 10px 2px alpha(red, .5)
 	&--rich
 		position relative

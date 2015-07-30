@@ -10,7 +10,8 @@ yaml = require 'gulp-yaml'
 # css
 stylus = require 'gulp-stylus'
 cmq = require 'gulp-combine-media-queries'
-autoprefixer = require 'gulp-autoprefixer'
+postcss = require 'gulp-postcss'
+autoprefixer = require 'autoprefixer-core'
 cssmin = require 'gulp-cssmin'
 sourcemaps = require 'gulp-sourcemaps'
 nib = require 'nib'
@@ -95,7 +96,7 @@ gulp.task 'stylus', ->
       compress: production
       import: ['nib']
     .pipe gulpif production, cmq()
-    .pipe autoprefixer browsers: ['last 2 version', '> 1%']
+    .pipe postcss [ autoprefixer browsers: ['last 2 version', '> 1%'] ]
     .pipe gulpif production, cssmin()
     .pipe gulpif not production, sourcemaps.write()
     .pipe gulp.dest paths.dest

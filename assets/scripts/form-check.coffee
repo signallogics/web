@@ -18,9 +18,11 @@ module.exports = (id, inputs, callback) ->
 
 				if check input.value
 					time = .7
-					input.style.transitionDuration = "#{time}s"
-					input.classList.add 'input--wrong'
-					setTimeout (-> this.classList.remove 'input--wrong').bind(input), time * 1000
+					richInput = input.parentElement
+					richInput.classList.add 'input--wrong'
+					richInput.classList.add 'input--shake'
+					input.onfocus = (-> @classList.remove 'input--wrong').bind richInput
+					setTimeout (-> @classList.remove 'input--shake').bind(richInput), 1000
 					errorInForm = yes
 			if errorInForm
 				return no
