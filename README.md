@@ -7,7 +7,7 @@
 * `wget` must be installed
 
 ### Basic Installation
-To get your CTFight/web you'll need to run one of the following command.
+To get your CTFight/web you'll need to run the following command.
 Paste it into your terminal and follow installation instructions.
 
 ```bash
