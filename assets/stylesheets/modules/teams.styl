@@ -12,6 +12,29 @@
 	position relative
 	display inline-table
 	margin 15px 30px
+
+	&__verified-mark
+		_height = 30px
+		background alpha(color_good_yellow, .7)
+		color color_ebony-clay
+		font-size 14px
+		font-weight 400
+		line-height _height
+		text-align center
+		overflow hidden
+		size 152px 2px
+		transition height animation_fast
+		&__wrap
+			absolute: top
+			height _height
+			overflow hidden
+			border-radius 5px 5px 0 0
+		.team:hover &
+			height _height
+
+	&--verified .team__verified-mark
+		background alpha(color_good_green, .7)
+
 	&--left
 		position relative
 		text-align right
@@ -26,6 +49,7 @@
 	&--right
 		.team__name, .team__info
 			left 160px
+
 	&__name, &__info
 		absolute: top 10px
 		width 400px
@@ -35,6 +59,7 @@
 		margin-top 25px
 		font-weight 100
 		color color_east-side
+
 	&__logo
 		size 150px
 		border 1px solid color_blue-marguerite
@@ -42,6 +67,7 @@
 		background color_ebony-clay
 		&--empty
 			background color_ebony-clay url(/images/no-logo.svg) no-repeat center bottom
+
 	&__plus
 		background color_ebony-clay url(/images/plus-logo.svg) no-repeat center
 		cursor pointer

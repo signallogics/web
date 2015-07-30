@@ -30,6 +30,12 @@ teamSchema = mongoose.Schema
 	results:
 		defense: Number
 		offense: Number
+	verified:
+		type: Boolean
+		default: no
+	registrationDate:
+		type: Date
+		default: Date.now
 
 Team = mongoose.model 'Team', teamSchema
 
@@ -69,7 +75,7 @@ module.exports =
 				and (data.service or data.serviceLink) \
 				and (data.video or data.videoLink)
 					return no
-			team = {}
+			team = new Team()
 			team.name = data.teamName
 			team.email = data.email if data.email
 			team.info = data.info if data.info
@@ -89,7 +95,6 @@ module.exports =
 			team.logo = choiceType data.logo, data.logoLink
 			team.service = choiceType data.service, data.serviceLink
 			team.video = choiceType data.video, data.videoLink
-			team.date = do Date.now
 
 			Team.update email: team.email, name: $exists: no, team, upsert: true, (err, team) ->
 				# TODO: Write error to logs
