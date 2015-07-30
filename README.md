@@ -37,16 +37,17 @@ Use this type of installation for development
 8. Run `npm install`
 9. _(Optional)_ Configure [mongo-express](https://github.com/andzdroid/mongo-express) if you need admin database client
 10. Run `gulp --production`
-11. Copy config file: `cp node_modules/mongo-express/config.default.js node_mod$
-12. Configure: `nano node_modules/mongo-express/config.js`
+11. Copy config file: `cp node_modules/mongo-express/config.default.js node_modules/mongo-express/config.js`
+12. Configure: `nano node_modules/mongo-express/config.js` _(Default login is `admin`, password is `pass`)_
 13. Run `npm start`
-14. Look your site on `https://<ip>:5000` (default port)
+14. Look your site on `http://localhost:5000` (default port)
 
 ### Development
 Use `gulp` to compile stylus, yaml and coffeescript (front-end).  
 Use `gulp watch` to develop. It compiles files as soon as they change and it runs server at `http://localhost:3000`  
 Use `gulp --production` to compile files for production  
 Use `npm start` to start service at `http://localhost:5000` (You must compile files in first)
+Use `npm run admin` to start admin client at `http://localhost:8081`
 
 ## Using Docker
 _`<container>` is one of `mongo_ctfight`, `node_ctfight` and `admin_ctfight`_
