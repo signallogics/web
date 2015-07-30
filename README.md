@@ -1,5 +1,7 @@
 # ctfight/web
 
+![](static/images/header.png)
+
 ## Getting Started
 ### Prerequisites
 * Unix-based operating system (OS X or Linux)
