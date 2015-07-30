@@ -2,38 +2,10 @@ express = require 'express'
 i18n = require 'i18n-2'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
-multer = require 'multer'
-path = require 'path'
-crypto = require 'crypto'
 morgan = require 'morgan'
-mkdirp = require 'mkdirp'
+path = require 'path'
 
-storage = multer.diskStorage
-	destination: (req, file, cb) ->
-		publicFields = ['logo']
-		if req.query.form in publicFields
-			cb(null, './static/uploads/')
-		else
-			cb(null, './uploads/')
-	filename: (req, file, cb) ->
-		crypto.pseudoRandomBytes 16, (err, raw) ->
-			ext = path.extname file.originalname
-			cb null, "#{raw.toString 'hex'}_#{do Date.now}_#{file.originalname.replace /[^\w\d]/g, '_'}"
-
-upload = multer
-	storage: storage
-	limits:
-		fieldNameSize : 100000
-		fieldSize : 5242880
-
-# create folders for uploads if it doesn't exist
-mkdirp 'uploads', (err) ->
-	if err then return console.error err
-	console.log 'Uploads folder created'
-
-mkdirp 'static/uploads', (err) ->
-	if err then return console.error err
-	console.log 'Static/uploads folder created'
+upload = require './modules/storage.coffee'
 
 # express configuration
 
@@ -60,9 +32,9 @@ app.use (req, res, next) ->
 
 # data #
 
-_data = require './data.coffee'
+_data = require './modules/data.coffee'
 
-db = require './db.coffee'
+db = require './modules/db.coffee'
 
 # main pages #
 app.route ['/', '/index']
