@@ -14,15 +14,15 @@ block content
 							if team.results.defense
 								br
 								em #{__('defense')}: 
-								span.font-regular #{team.results.defense} 
+								strong #{team.results.defense} 
 							if team.results.offense
 								br
 								em #{__('offense')}: 
-								span.font-regular #{team.results.offense} 
+								strong #{team.results.offense} 
 							if team.results.offense && team.results.defense
 								br
 								em #{__('summary')}: 
-								span.font-regular #{team.results.defense + team.results.offense}
+								strong #{team.results.defense + team.results.offense}
 					//- base64 data is 1x1 transparent image
 					img.team__logo(src= team.logo.path ? team.logo.path : 'images/transparent.gif' class= team.logo.path ? '' : 'team__logo--empty')
 			if teams.length < 8
