@@ -35,7 +35,7 @@ Admin client at port 4001
 ### Manual Installation
 Use this type of installation for development
 
-1. Install [node.js](https://nodejs.org) (`npm` will install automatically)
+1. Install [node.js](https://nodejs.org) (`npm` will install automatically)  
 1.1 Or install from repository: `sudo apt-get install nodejs nodejs-legacy npm`
 2. Install mongodb: `sudo apt-get install mongodb`
 3. Start mongodb: `sudo /etc/init.d/mongodb start`
