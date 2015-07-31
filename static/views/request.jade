@@ -13,7 +13,7 @@ block content
 						.input--file__view
 							div= __(input.file.text)
 							.input--file__view__progress(data-percent='0')
-						input.input--file__input(form=input.file.name name='file' type='file')
+						input.input--file__input(form=input.file.name name='file' type='file' data-static= input.file.static)
 						input(type='hidden' form='request-form' name=input.file.name)
 				if input.tip
 					.tip

@@ -6,65 +6,15 @@ fs = require 'fs'
 
 
 errors =
-	1000:
-		code: 1000
+	UNKNOWN:
+		code: 'UNKNOWN'
 		message: 'Unknown error'
-	1001:
-		code: 1001
-		message: 'File is not image'
-	1002:
-		code: 1002
+	NOT_IMAGE:
+		code: 'NOT_IMAGE'
+		message: 'File is not an image'
+	FILE_BIG:
+		code: 'FILE_BIG'
 		message: 'File is too big'
-
-
-# files are keeping in static/uploads (any user can get it)
-# only small files
-fields =
-	images: ['logo']
-fields.public = fields.images
-
-storage = multer.diskStorage
-	destination: (req, file, cb) ->
-		if req.query.form in fields.public
-			cb null, './static/uploads/'
-		else
-			cb null, './uploads/'
-	filename: (req, file, cb) ->
-		crypto.pseudoRandomBytes 16, (err, raw) ->
-			ext = path.extname file.originalname
-			cb null, "#{raw.toString 'hex'}_#{do Date.now}_#{file.originalname.replace /[^\w\d]/g, '_'}"
-
-upload = multer
-	storage: storage
-	fileFilter: fileFilter
-	limits:
-		fieldNameSize : 100000
-		fieldSize : 1024
-
-fileFilter = (req, file, cb) ->
-	if req.query.form in fields.images and file.mimetype.slice(0, 5) isnt 'image'
-		req.file =
-			error_code: 1001
-			error_message: errors[1001].message
-		cb null, no
-	else
-		cb null, yes
-
-handler = (req, res) ->
-	unless req.file
-		return res.send error: errors[1000]
-
-	unless req.file.error_code
-		if (req.query.form in fields.images and req.file.size > 1024 * 1024 * 10 ) \ # image is bigger then 10 Mb
-			or req.file.size > 1024 * 1024 * 1024 # file is bigger then 1 Gb
-				fs.unlink req.file.path
-				return res.send error: errors[1002]
-
-		return res.send file: req.file
-
-	else
-		return res.send error: errors[req.file.error_code] or errors[1000]
-
 
 # create folders for uploads if it doesn't exist
 mkdirp 'uploads', (err) ->
@@ -75,6 +25,64 @@ mkdirp 'static/uploads', (err) ->
 	if err then return console.error err
 	console.log 'Static/uploads folder created'
 
+
+# files are keeping in static/uploads (any user can get it)
+# only small files
+fields =
+	images: ['logo']
+fields.public = fields.images
+
+
+fileIsImageFilter = (req, file, cb) ->
+	if file.mimetype.slice(0, 5) isnt 'image'
+		req.file =
+			error_code: 'NOT_IMAGE'
+			error_message: errors.NOT_IMAGE.message
+		cb null, no
+	else
+		cb null, yes
+
+
+handler = (req, res) ->
+	unless req.file
+		return res.send error: errors.UNKNOWN
+
+	unless req.file.error_code
+		return res.send file: req.file
+
+	else
+		return res.send error: errors[req.file.error_code] or errors.UNKNOWN
+
+limitHandler = (err, req, res, next) ->
+	if err.code is 'LIMIT_FILE_SIZE'
+		res.send
+			result: 'fail'
+			error: errors.FILE_BIG
+		return
+
+uploadFileName = (req, file, cb) ->
+	crypto.pseudoRandomBytes 16, (err, raw) ->
+		ext = path.extname file.originalname
+		cb null, "#{raw.toString 'hex'}_#{do Date.now}_#{file.originalname.replace /[^\w\d]/g, '_'}"
+
+upload = multer
+	storage: multer.diskStorage
+		destination: './uploads/'
+		filename: uploadFileName
+	limits:
+		fieldSize: 1024 * 1024 * 1024
+
+uploadImages = multer
+	storage: multer.diskStorage
+		destination: './static/uploads/'
+		filename: uploadFileName
+	fileFilter: fileIsImageFilter
+	limits:
+		fieldSize: 1024 * 1024 * 5
+
+
 module.exports =
 	upload: upload
+	uploadImages: uploadImages
 	handler: handler
+	limitHandler: limitHandler

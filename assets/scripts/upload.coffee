@@ -1,5 +1,6 @@
-module.exports = (element, form) ->
-	url = "/upload?form=#{form.id}"
+module.exports = (element, form, staticFile) ->
+	url = '/upload'
+	url += '/static' if staticFile
 	xhr = new XMLHttpRequest()
 	fd = new FormData(form)
 

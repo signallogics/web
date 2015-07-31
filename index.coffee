@@ -5,21 +5,23 @@ bodyParser = require 'body-parser'
 morgan = require 'morgan'
 path = require 'path'
 
-srg = require './modules/storage.coffee'
-upload = srg.upload
-srghandler = srg.handler
-
 # express configuration
 
 app = express()
-app.set('views', 'static/views');
+app.set 'views', 'static/views'
 app.set 'view engine', 'jade'
 app.use express.static __dirname + '/static'
 
 app.use do cookieParser
 app.use do bodyParser.json
 app.use bodyParser.urlencoded extended: yes, limit: 100000000
-app.use morgan 'dev'
+app.use morgan 'dev', devDefaultColor: 90
+
+
+srg = require './modules/storage.coffee'
+
+app.use srg.limitHandler
+
 
 # localization
 
@@ -49,7 +51,7 @@ app.route ['/', '/index']
 app.route '/request'
 	.get (req, res) ->
 		db.teams.list (err, teams) ->
-			unless err?
+			unless err
 				if teams.length < 8
 					message = req.i18n.__('register_is_open', teams.length)
 				else if teams.length < 16
@@ -63,10 +65,11 @@ app.route '/request'
 
 app.get '/teams', (req, res) ->
 	db.teams.list (err, teams) ->
-		unless err?
+		unless err
 			res.render 'teams', teamsTitle: 'Первый тур', teams: teams.slice(0, 8), title: req.i18n.__('teams_title')
 
-app.post '/upload', upload.single('file'), srghandler
+app.post '/upload', srg.upload.single('file'), srg.handler
+app.post '/upload/static', srg.uploadImages.single('file'), srg.handler
 
 app.get '/static/*', (req, res) ->
 	res.redirect req.path.substr 7

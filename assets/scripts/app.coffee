@@ -21,7 +21,7 @@ document.addEventListener 'DOMContentLoaded', ->
 
 		for element in document.querySelectorAll('.input--file__input')
 			element.onchange = ->
-				upload this, this.form
+				upload this, this.form, this.hasAttribute 'data-static'
 
 	formCheck 'remind-form', email: 'email'
 	formCheck 'request-form',

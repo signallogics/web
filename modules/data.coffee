@@ -46,6 +46,7 @@ requestForm =
 		name: 'logoLink'
 		placeholder: 'logo_link_or_file'
 		file:
+			static: yes
 			text: 'choose'
 			name: 'logo'
 		tip:
@@ -62,6 +63,7 @@ requestForm =
 		placeholder: 'service_link_or_file'
 		mark: 'necessary'
 		file:
+			static: no
 			text: 'choose'
 			name: 'service'
 		tip:
@@ -72,6 +74,7 @@ requestForm =
 		placeholder: 'video_write_up_link_or_file'
 		mark: 'necessary'
 		file:
+			static: no
 			text: 'choose'
 			name: 'video'
 		tip:

@@ -58,7 +58,7 @@
     "mkdirp": "^0.5.1",
     "mongo-express": "^0.21.0",
     "mongoose": "^4.1.0",
-    "morgan": "^1.6.1",
+    "morgan": "https://github.com/Nitive/morgan.git",
     "multer": "^1.0.1"
   }
 }
