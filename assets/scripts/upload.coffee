@@ -1,3 +1,4 @@
+humane = require 'humane-js'
 module.exports = (element, form, staticFile) ->
 	url = '/upload'
 	url += '/static' if staticFile
@@ -18,8 +19,15 @@ module.exports = (element, form, staticFile) ->
 				textField.disabled = yes
 				hiddenField.value = data.file.path
 			else
-				# TODO: Error message
-				console.log 'TODO'
+				request = new XMLHttpRequest()
+				request.open 'GET', "/translation?text=error_#{data.error.code}", true
+				request.onreadystatechange = ->
+					if request.readyState is 4 and request.status is 200
+						data = JSON.parse request.responseText
+						humane.log data.text
+						progressBar.setAttribute 'data-percent', 0
+				do request.send
+
 
 	xhr.upload.onprogress = (e) ->
 		progress = (e.position or e.loaded) / (e.totalSize or e.total)

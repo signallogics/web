@@ -12,8 +12,8 @@ errors =
 	NOT_IMAGE:
 		code: 'NOT_IMAGE'
 		message: 'File is not an image'
-	FILE_BIG:
-		code: 'FILE_BIG'
+	FILE_LARGE:
+		code: 'FILE_LARGE'
 		message: 'File is too big'
 
 # create folders for uploads if it doesn't exist
@@ -44,10 +44,16 @@ fileIsImageFilter = (req, file, cb) ->
 
 
 handler = (req, res) ->
+
 	unless req.file
 		return res.send error: errors.UNKNOWN
 
 	unless req.file.error_code
+		# delete after fix this bug (https://github.com/expressjs/multer/issues/168)
+		if req.file.size > 1024 * 1024 * 5 and req.file.mimetype.slice(0, 5) #
+			fs.unlink req.file.path                                        #
+			return res.send                                                #
+				error: errors.FILE_LARGE                                     #
 		return res.send file: req.file
 
 	else
@@ -57,8 +63,7 @@ limitHandler = (err, req, res, next) ->
 	if err.code is 'LIMIT_FILE_SIZE'
 		res.send
 			result: 'fail'
-			error: errors.FILE_BIG
-		return
+			error: errors.FILE_LARGE
 
 uploadFileName = (req, file, cb) ->
 	crypto.pseudoRandomBytes 16, (err, raw) ->
@@ -70,7 +75,7 @@ upload = multer
 		destination: './uploads/'
 		filename: uploadFileName
 	limits:
-		fieldSize: 1024 * 1024 * 1024
+		fileSize: 1024 * 1024 * 1024
 
 uploadImages = multer
 	storage: multer.diskStorage
@@ -78,7 +83,10 @@ uploadImages = multer
 		filename: uploadFileName
 	fileFilter: fileIsImageFilter
 	limits:
-		fieldSize: 1024 * 1024 * 5
+		fileSize: 1024 * 1024 * 5
+		# delete after fix this bug (https://github.com/expressjs/multer/issues/168)
+		fileSize: 1024 * 1024 * 1024       #
+
 
 
 module.exports =

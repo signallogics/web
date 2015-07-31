@@ -123,4 +123,4 @@ gulp.task 'watch', ['browser-sync', 'watchjs'], ->
     .on 'change', sync.reload
   nodemon
     script: 'index.coffee'
-    watch: ['*.coffee', 'modules/*.coffee']
+    watch: ['./*.coffee', './modules/*.coffee']

@@ -22,7 +22,6 @@ srg = require './modules/storage.coffee'
 
 app.use srg.limitHandler
 
-
 # localization
 
 i18n.expressBind app,
@@ -74,6 +73,11 @@ app.post '/upload/static', srg.uploadImages.single('file'), srg.handler
 app.get '/static/*', (req, res) ->
 	res.redirect req.path.substr 7
 
+app.get '/translation/', (req, res) ->
+	result =
+		text: req.i18n.__(req.query.text)
+		locale: req.i18n.locale
+	res.send result
 
 # development #
 
