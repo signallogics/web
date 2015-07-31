@@ -25,6 +25,13 @@ Admin client at port 4001
 * NodeJS express-based application inside `node_ctfight` container
 * Admin database client (mongo-express) inside `admin_ctfight` container
 
+### Update
+1. Get terminal of node\_ctfight `docker exec -it node_ctfight bash`
+2. Download latest version of sources `git pull --rebase`
+3. Update node modules `npm install`
+4. Compile assets `gulp --production`
+5. Press `^D` to exit
+
 ### Manual Installation
 Use this type of installation for development
 
