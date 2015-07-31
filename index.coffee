@@ -5,7 +5,9 @@ bodyParser = require 'body-parser'
 morgan = require 'morgan'
 path = require 'path'
 
-upload = require './modules/storage.coffee'
+srg = require './modules/storage.coffee'
+upload = srg.upload
+srghandler = srg.handler
 
 # express configuration
 
@@ -64,23 +66,10 @@ app.get '/teams', (req, res) ->
 		unless err?
 			res.render 'teams', teamsTitle: 'Первый тур', teams: teams.slice(0, 8), title: req.i18n.__('teams_title')
 
-app.post '/upload', upload.single('file'), (req, res) ->
-	unless req.file
-		res.send error:
-			code: 1000
-			text: 'Unknown error'
-		return
+app.post '/upload', upload.single('file'), srghandler
 
-	unless req.file.error_code
-		req.file.path = req.file.path.replace 'static/', '' # static break links
-		res.send
-			error: null
-			file: req.file
-
-	else
-		res.send error:
-			code: req.file.error_code
-			text: req.file.error_message
+app.get '/static/*', (req, res) ->
+	res.redirect req.path.substr 7
 
 
 # development #
