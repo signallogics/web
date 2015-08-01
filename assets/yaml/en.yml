@@ -61,3 +61,7 @@ summary: 'Summary'
 register_is_open: '?' # Зарегистрированно %s из 8.
 register_is_in_next_time: '?' # На ближайший тур зарегистрированно 8 из 8 команд. Ну следующий %s из 8.
 register_is_inaccessible: '?' # Регистрация на ближайшие игры закончилась.
+
+we_notify_you_about_start: '?'
+registration_success: '?'
+to_index: to main # на главную

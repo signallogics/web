@@ -44,7 +44,7 @@ app.route ['/', '/index']
 		res.render 'index', title: req.i18n.__('index_title')
 	.post (req, res) ->
 		db.teams.addOnlyEmail req.body.email
-		res.redirect 'index'
+		res.render 'notification', notification: req.i18n.__('we_notify_you_about_start')
 
 app.route '/request'
 	.get (req, res) ->
@@ -59,7 +59,10 @@ app.route '/request'
 				res.render 'request', requestForm: _data.requestForm, message: message, title: req.i18n.__('request_title')
 	.post (req, res) ->
 		if db.teams.add req.body
-			res.redirect 'index'
+			res.render 'notification', notification: req.i18n.__('registration_success')
+
+app.get '/notify', (req, res) ->
+	res.render 'notification', notification: req.i18n.__('registration_success')
 
 app.get '/teams', (req, res) ->
 	db.teams.list (err, teams) ->

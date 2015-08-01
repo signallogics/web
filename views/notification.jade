@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	.notification__wrap
+		.notification!= notification
+			br
+			a.btn.btn--important.to-index(href= 'index')= __('to_index')
