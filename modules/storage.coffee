@@ -50,7 +50,7 @@ handler = (req, res) ->
 
 	unless req.file.error_code
 		# delete after fix this bug (https://github.com/expressjs/multer/issues/168)
-		if req.file.size > 1024 * 1024 * 5 and req.file.mimetype.slice(0, 5) #
+		if req.file.size > 1024 * 1024 * 5 and req.file.mimetype.slice(0, 5) is 'image' #
 			fs.unlink req.file.path                                        #
 			return res.send                                                #
 				error: errors.FILE_LARGE                                     #
