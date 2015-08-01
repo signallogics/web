@@ -8,6 +8,13 @@
 * `Docker` must be installed
 * `wget` must be installed
 
+### Installation to one docker container
+1. Clone repository `git clone https://github.com/ctfight/web.git ctfight-web`
+2. Go to install folder `cd ctfight-web/install`
+3. Give permission to `install_all.sh` script `chmod +x install_all.sh`
+4. Run script `./install_all.sh`
+5. Follow instalation instructions
+
 ### Basic Installation
 To get your CTFight/web you'll need to run the following command.
 Paste it into your terminal and follow installation instructions.
