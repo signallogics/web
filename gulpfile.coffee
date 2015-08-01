@@ -36,7 +36,7 @@ paths =
   yaml: './assets/yaml/*.yml'
   stylus: './assets/stylesheets/*.styl'
   deep_stylus: './assets/stylesheets/**/*.styl'
-  jade: './static/views/*.jade'
+  jade: './views/*.jade'
   dest: './static/generated/'
 
 buildScript = (files, watch) ->
@@ -123,4 +123,4 @@ gulp.task 'watch', ['browser-sync', 'watchjs'], ->
     .on 'change', sync.reload
   nodemon
     script: 'index.coffee'
-    watch: ['./*.coffee', './modules/*.coffee']
+    watch: ['index.coffee', 'modules/*.coffee']

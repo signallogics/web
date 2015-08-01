@@ -8,7 +8,6 @@ path = require 'path'
 # express configuration
 
 app = express()
-app.set 'views', 'static/views'
 app.set 'view engine', 'jade'
 app.use express.static __dirname + '/static'
 
