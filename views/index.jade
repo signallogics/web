@@ -6,7 +6,7 @@ block content
 		.index-top__info!= __('what_is_ctfight')
 		form(method= 'post')#remind-form.remind-form
 			.input--rich.remind-form__input(data-info= __('remind_about_start'))
-				input.input.input--shine(placeholder='e-mail' name='email' form='remind-form')
+				input.input.input--shine(placeholder='e-mail' name='email' form='remind-form' type='email')
 			input.btn.btn--submit(type= 'submit' value= __('remind_me') form='remind-form').remind-form__submit
 	.index-rulers
 		.index-rulers__wrap
