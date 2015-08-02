@@ -13,7 +13,10 @@
 2. Go to install folder `cd ctfight-web/install`
 3. Give permission to `install_all.sh` script `chmod +x install_all.sh`
 4. Run script `./install_all.sh`
-5. Follow instalation instructions
+5. Follow installation instructions
+
+Site will run at port 4000  
+Admin client at port 4001  
 
 ### Basic Installation
 To get your CTFight/web you'll need to run the following command.
