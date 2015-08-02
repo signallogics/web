@@ -1,6 +1,7 @@
 # ctfight/web
 
 [![Join the chat at https://gitter.im/ctfight/web](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ctfight/web?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Dependency Status](https://www.versioneye.com/user/projects/55be2ae4333639000d000ac2/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55be2ae4333639000d000ac2)
 
 ![](lib/static/images/header.png)
 

@@ -96,25 +96,25 @@ app.get '/translation', (req, res) ->
 # development #
 
 # if running without --production flag
-unless process.env.npm_config_production
+if process.env.NODE_ENV is 'development'
 	jade = require 'jade'
 
-	# jade syntax hightlight with prisma.js
+	# jade syntax hightlight with prism.js
 	jade.filters.jade = (str) ->
 		"<pre><code class=\"language-jade\">#{str}</pre></code>"
 
-	# jade syntax hightlight and html compile with prisma.js
+	# jade syntax hightlight and html compile with prism.js
 	jade.filters.jadelive = (str) ->
 		arr = str.split('\n')
 		className = arr[0]
 		str = arr.slice(1).join('\n')
 		"<div class='example'><div class=#{className}>#{ jade.render str }</div><pre><code class=\"language-jade\">#{str}</pre></code>"
 
-	# stylus syntax hightlight with prisma.js
+	# stylus syntax hightlight with prism.js
 	jade.filters.stylus = (str) ->
 		"<pre><code class=\"language-stylus\">#{str}</pre></code>"
 
-	# coffee syntax hightlight with prisma.js
+	# coffee syntax hightlight with prism.js
 	jade.filters.coffee = (str) ->
 		"<pre><code class=\"language-coffeescript\">#{str}</pre></code>"
 
