@@ -17,11 +17,11 @@ errors =
 		message: 'File is too big'
 
 # create folders for uploads if it doesn't exist
-mkdirp 'uploads', (err) ->
+mkdirp __dirname + '/uploads', (err) ->
 	if err then return console.error err
 	console.log 'Uploads folder created'
 
-mkdirp 'static/uploads', (err) ->
+mkdirp __dirname + '/static/uploads', (err) ->
 	if err then return console.error err
 	console.log 'Static/uploads folder created'
 
