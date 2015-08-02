@@ -1,6 +1,6 @@
 # ctfight/web
 
-![](static/images/header.png)
+![](lib/static/images/header.png)
 
 ## Getting Started
 ### Prerequisites
