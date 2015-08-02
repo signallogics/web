@@ -1,3 +1,4 @@
+debug = require('debug') 'ctfight:db'
 mongoose = require 'mongoose'
 
 # process.env.MONGO_PORT_27017_TCP_ADDR is wrong, if don't know why
@@ -11,7 +12,7 @@ else
 mongoose.connect "mongodb://#{host}:#{port}/ctfight"
 db = mongoose.connection
 db.on 'error', console.error.bind console, 'Connection error:'
-db.once 'open', -> console.log 'Connection open successful'
+db.once 'open', -> debug 'Connection open successful'
 
 teamSchema = mongoose.Schema
 	name: String

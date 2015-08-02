@@ -4,10 +4,12 @@
   "description": "CTFight site",
   "main": "index.coffee",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "NODE_ENV=dev DEBUG=ctfight:* gulp watch",
+    "compile": "gulp --production",
     "admin": "nodemon node_modules/mongo-express/app.js",
     "docker": "cd install; chmod +x install_all.sh; ./install_all.sh",
-    "start": "nodemon index.coffee"
+    "start": "DEBUG=ctfight:* nodemon index.coffee",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --recursive ./test"
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,7 @@
     "nib": "^1.1.0",
     "normalize-styl": "^3.0.3",
     "run-sequence": "^1.1.1",
+    "supertest": "^1.0.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.3.0",
     "yargs": "^3.15.0"

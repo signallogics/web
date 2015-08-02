@@ -3,6 +3,7 @@ multer = require 'multer'
 mkdirp = require 'mkdirp'
 path = require 'path'
 fs = require 'fs'
+debug = require('debug') 'ctfight:storage'
 
 
 errors =
@@ -19,11 +20,11 @@ errors =
 # create folders for uploads if it doesn't exist
 mkdirp __dirname + '/uploads', (err) ->
 	if err then return console.error err
-	console.log 'Uploads folder created'
+	debug 'Uploads folder created'
 
 mkdirp __dirname + '/static/uploads', (err) ->
 	if err then return console.error err
-	console.log 'Static/uploads folder created'
+	debug 'Static/uploads folder created'
 
 
 # files are keeping in static/uploads (any user can get it)

@@ -4,6 +4,8 @@ cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
 morgan = require 'morgan'
 path = require 'path'
+debug = require('debug') 'ctfight:express'
+fs = require 'fs'
 
 # express configuration
 
@@ -14,7 +16,12 @@ app.use express.static __dirname + '/static'
 app.use do cookieParser
 app.use do bodyParser.json
 app.use bodyParser.urlencoded extended: yes, limit: 100000000
-app.use morgan 'dev', devDefaultColor: 90
+
+switch process.env.NODE_ENV
+	when 'development'
+		app.use morgan 'dev', devDefaultColor: 90
+	when 'production'
+		app.use morgan 'combined', stream: fs.createWriteStream __dirname + '/access.log', flags: 'a'
 
 
 srg = require './storage.coffee'
@@ -64,10 +71,6 @@ app.route '/request'
 			res.render 'notification', notification: req.i18n.__('registration_success')
 
 
-app.get '/notify', (req, res) ->
-	res.render 'notification', notification: req.i18n.__('registration_success')
-
-
 app.get '/teams', (req, res) ->
 	db.teams.list (err, teams) ->
 		unless err
@@ -84,7 +87,7 @@ app.get '/static/*', (req, res) ->
 # get translation of work with i18n module
 # require for front-end
 ###
-app.get '/translation/', (req, res) ->
+app.get '/translation', (req, res) ->
 	result =
 		text: req.i18n.__(req.query.text)
 		locale: req.i18n.locale
