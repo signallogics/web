@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/ctfight/web.svg?branch=master)](https://travis-ci.org/ctfight/web)
 [![Dependency Status](https://www.versioneye.com/user/projects/55be2ae4333639000d000ac2/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55be2ae4333639000d000ac2)
 
-![](lib/static/images/header.png)
+![](static/images/header.png)
 
 ## Getting Started
 ### Prerequisites
