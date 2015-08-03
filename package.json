@@ -10,7 +10,7 @@
     "docker": "cd install; chmod +x install_all.sh; ./install_all.sh",
     "start": "DEBUG=ctfight:* nodemon index.coffee",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --recursive ./test",
-    "coverage": "NODE_ENV=test ./node_modules/.bin/mocha --require coffee-coverage/register-istanbul --compilers coffee:coffee-script/register --recursive ./test; mv coverage/coverage-coffee.json coverage/coverage.json"
+    "coverage": "NODE_ENV=test ./node_modules/.bin/mocha --require coffee-coverage/register-istanbul --compilers coffee:coffee-script/register --recursive ./test; mv coverage/coverage-coffee.json coverage/coverage.json; bash <(curl -s https://codecov.io/bash);"
   },
   "repository": {
     "type": "git",
