@@ -1,5 +1,5 @@
 node_modules
 *.log
-lib/static/generated/
+static/generated/
 locales/
 uploads/

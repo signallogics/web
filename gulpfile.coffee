@@ -37,7 +37,7 @@ paths =
   stylus: './assets/stylesheets/*.styl'
   deep_stylus: './assets/stylesheets/**/*.styl'
   jade: './views/*.jade'
-  dest: './lib/static/generated/'
+  dest: './static/generated/'
 
 buildScript = (files, watch) ->
   rebundle = (callback) ->

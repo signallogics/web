@@ -11,7 +11,7 @@ fs = require 'fs'
 
 app = express()
 app.set 'view engine', 'jade'
-app.use express.static __dirname + '/static'
+app.use express.static 'static'
 
 app.use do cookieParser
 app.use do bodyParser.json

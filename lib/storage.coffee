@@ -6,7 +6,6 @@ fs = require 'fs'
 debug = require('debug') 'ctfight:storage'
 
 
-
 module.exports =
 	_errors:
 		UNKNOWN:
@@ -18,16 +17,6 @@ module.exports =
 		FILE_LARGE:
 			code: 'FILE_LARGE'
 			message: 'File is too big'
-
-	# create folders for uploads if it doesn't exist
-	_createUploadsFolders: ->
-		mkdirp __dirname + '/uploads', (err) ->
-			if err then return console.error err
-			debug 'Uploads folder created'
-
-		mkdirp __dirname + '/static/uploads', (err) ->
-			if err then return console.error err
-			debug 'Static/uploads folder created'
 
 
 	_fileIsImageFilter: (req, file, cb) ->
@@ -83,6 +72,3 @@ module.exports =
 			fileSize: 1024 * 1024 * 5
 			# delete after fix this bug (https://github.com/expressjs/multer/issues/168)
 			fileSize: 1024 * 1024 * 1024       #
-
-
-do module.exports._createUploadsFolders
