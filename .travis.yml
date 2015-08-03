@@ -1,7 +1,14 @@
 language: node_js
+
 node_js:
   - '0.12'
+
 before_install:
-  - "npm install -g gulp coffee-script nodemon phantomjs"
+  - npm install -g gulp coffee-script nodemon phantomjs
+  - pip install codecov
+
+after_success:
+  - codecov
+
 services:
   - mongodb
