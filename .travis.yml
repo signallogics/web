@@ -4,11 +4,10 @@ node_js:
   - '0.12'
 
 before_install:
-  - npm install -g gulp coffee-script nodemon phantomjs
-  - pip install codecov
+  - 'npm install -g gulp coffee-script nodemon phantomjs istanbul'
 
 after_success:
-  - codecov
+  - 'npm run coverage; bash <(curl -s https://codecov.io/bash)'
 
 services:
   - mongodb

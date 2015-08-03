@@ -2,6 +2,7 @@
 
 [![Join the chat at https://gitter.im/ctfight/web](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ctfight/web?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/ctfight/web.svg?branch=master)](https://travis-ci.org/ctfight/web)
+[![codecov.io](http://codecov.io/github/ctfight/web/coverage.svg?branch=master)](http://codecov.io/github/ctfight/web?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/55be2ae4333639000d000ac2/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55be2ae4333639000d000ac2)
 
 ![](static/images/header.png)
