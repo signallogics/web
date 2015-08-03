@@ -32,24 +32,32 @@ module.exports =
 	handler: (req, res) ->
 
 		unless req.file
-			return res.send error: @_errors.UNKNOWN
+			return res.send
+				result: 'fail'
+				error: @_errors.UNKNOWN
 
 		unless req.file.error_code
 			# delete after fix this bug (https://github.com/expressjs/multer/issues/168)
 			if req.file.size > 1024 * 1024 * 5 and req.file.mimetype.slice(0, 5) is 'image' #
-				fs.unlink req.file.path                                        #
-				return res.send                                                #
-					error: @_errors.FILE_LARGE                                     #
-			return res.send file: req.file
+				fs.unlink req.file.path                                                       #
+				return res.send                                                               #
+					result: 'fail'                                                              #
+					error: @_errors.FILE_LARGE                                                  #
+			return res.send
+				result: 'ok'
+				file: req.file
 
 		else
-			return res.send error: @_errors[req.file.error_code] or @_errors.UNKNOWN
+			return res.send
+				result: 'fail'
+				error: @_errors[req.file.error_code] or @_errors.UNKNOWN
 
 	limitHandler: (err, req, res, next) ->
 		if err.code is 'LIMIT_FILE_SIZE'
 			res.send
 				result: 'fail'
 				error: @_errors.FILE_LARGE
+		do next
 
 	uploadFileName: (req, file, cb) ->
 		crypto.pseudoRandomBytes 16, (err, raw) ->
