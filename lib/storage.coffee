@@ -6,8 +6,10 @@ fs = require 'fs'
 debug = require('debug') 'ctfight:storage'
 
 
-module.exports =
-	_errors:
+m = {}
+module.exports = m
+
+m._errors =
 		UNKNOWN:
 			code: 'UNKNOWN'
 			message: 'Unknown error'
@@ -19,22 +21,23 @@ module.exports =
 			message: 'File is too big'
 
 
-	_fileIsImageFilter: (req, file, cb) ->
+m._fileIsImageFilter = (req, file, cb) ->
+		console.log file.mimetype.slice(0, 5)
 		if file.mimetype.slice(0, 5) isnt 'image'
 			req.file =
 				error_code: 'NOT_IMAGE'
-				error_message: @_errors.NOT_IMAGE.message
+				error_message: m._errors.NOT_IMAGE.message
 			cb null, no
 		else
 			cb null, yes
 
 
-	handler: (req, res) ->
+m.handler = (req, res) ->
 
 		unless req.file
 			return res.send
 				result: 'fail'
-				error: @_errors.UNKNOWN
+				error: m._errors.UNKNOWN
 
 		unless req.file.error_code
 			# delete after fix this bug (https://github.com/expressjs/multer/issues/168)
@@ -42,7 +45,7 @@ module.exports =
 				fs.unlink req.file.path                                                       #
 				return res.send                                                               #
 					result: 'fail'                                                              #
-					error: @_errors.FILE_LARGE                                                  #
+					error: m._errors.FILE_LARGE                                                  #
 			return res.send
 				result: 'ok'
 				file: req.file
@@ -50,32 +53,32 @@ module.exports =
 		else
 			return res.send
 				result: 'fail'
-				error: @_errors[req.file.error_code] or @_errors.UNKNOWN
+				error: m._errors[req.file.error_code] or m._errors.UNKNOWN
 
-	limitHandler: (err, req, res, next) ->
+m.limitHandler = (err, req, res, next) ->
 		if err.code is 'LIMIT_FILE_SIZE'
 			res.send
 				result: 'fail'
-				error: @_errors.FILE_LARGE
+				error: m._errors.FILE_LARGE
 		do next
 
-	uploadFileName: (req, file, cb) ->
+m.uploadFileName = (req, file, cb) ->
 		crypto.pseudoRandomBytes 16, (err, raw) ->
 			ext = path.extname file.originalname
 			cb null, "#{raw.toString 'hex'}_#{do Date.now}_#{file.originalname.replace /[^\w\d]/g, '_'}"
 
-	upload: multer
+m.upload = multer
 		storage: multer.diskStorage
 			destination: './uploads/'
-			filename: @uploadFileName
+			filename: m.uploadFileName
 		limits:
 			fileSize: 1024 * 1024 * 1024
 
-	uploadImages: multer
+m.uploadImages = multer
 		storage: multer.diskStorage
 			destination: './static/uploads/'
-			filename: @uploadFileName
-		fileFilter: @_fileIsImageFilter
+			filename: m.uploadFileName
+		fileFilter: m._fileIsImageFilter
 		limits:
 			fileSize: 1024 * 1024 * 5
 			# delete after fix this bug (https://github.com/expressjs/multer/issues/168)
