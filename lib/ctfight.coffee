@@ -17,8 +17,9 @@ app.use do cookieParser
 app.use do bodyParser.json
 app.use bodyParser.urlencoded extended: yes, limit: 100000000
 
+console.log " ----- #{process.env.NODE_ENV} mode ----- "
 switch process.env.NODE_ENV
-	when 'development'
+	when 'dev'
 		app.use morgan 'dev', devDefaultColor: 90
 	when 'production'
 		app.use morgan 'combined', stream: fs.createWriteStream __dirname + '/access.log', flags: 'a'
@@ -96,7 +97,7 @@ app.get '/translation', (req, res) ->
 # development #
 
 # if running without --production flag
-if process.env.NODE_ENV is 'development'
+if process.env.NODE_ENV is 'dev'
 	jade = require 'jade'
 
 	# jade syntax hightlight with prism.js

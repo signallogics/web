@@ -1,26 +1,3 @@
-teams = [
-	name: 'keva'
-	logo: 'http://keva.su/uploads/2013/11/keva.png'
-	info: 'Томск, ТУСУР'
-	results:
-		defense: 523
-		offense: 216
-,
-	name: 'Команда'
-	logo: undefined
-	info: 'Новосибирск, НовГУ'
-	results:
-		defense: 123
-		offense: 234
-,
-	name: 'Команда 2'
-	logo: undefined
-	info: 'Москва, МГУ'
-	results:
-		defense: undefined
-		offense: undefined
-]
-
 requestForm =
 	fields: [
 		name: 'teamName'
@@ -99,5 +76,4 @@ requestForm =
 		text: 'send_request'
 
 module.exports =
-	teams: teams
 	requestForm: requestForm
