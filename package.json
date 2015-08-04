@@ -1,6 +1,6 @@
 {
   "name": "ctfight-web",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "CTFight site",
   "main": "index.coffee",
   "scripts": {
