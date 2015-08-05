@@ -37,6 +37,10 @@ teamSchema = mongoose.Schema
 	registrationDate:
 		type: Date
 		default: Date.now
+	tour:
+		type: Number
+		default: 1
+
 
 Team = mongoose.model 'Team', teamSchema
 
@@ -103,7 +107,7 @@ module.exports =
 			# Return error WRONG_EMAIL if email is already in use by any team
 			# Insert new team otherwise
 			###
-			Team.find { email: team.email }, (err, response) ->
+			Team.find { tour: 1, email: team.email }, (err, response) ->
 
 				if err then return callback err
 				if response[0].name
@@ -112,7 +116,7 @@ module.exports =
 						message: 'This email is already in use'
 					return callback err
 
-				Team.update { email: team.email, name: $exists: no }, team, upsert: true, (err, team) ->
+				Team.update { tour: 1, email: team.email, name: $exists: no }, team, upsert: true, (err, team) ->
 					return callback err
 
 
