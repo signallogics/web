@@ -57,6 +57,7 @@ app.route ['/', '/index']
 
 
 app.route '/request'
+
 	.get (req, res) ->
 		db.teams.list (err, teams) ->
 			unless err
@@ -67,9 +68,19 @@ app.route '/request'
 				else
 					message = req.i18n.__('register_is_inaccessible')
 				res.render 'request', requestForm: _data.requestForm, message: message, title: req.i18n.__('request_title')
+
 	.post (req, res) ->
-		if db.teams.add req.body
-			res.render 'notification', notification: req.i18n.__('registration_success')
+		db.teams.add req.body, (err) ->
+			unless err
+				res.render 'notification', notification: req.i18n.__('registration_success')
+			else
+				# TODO: Write unknown error to logs
+				errors =
+					UNKNOWN: 'unknown'
+					WRONG_EMAIL: 'wrong_email'
+					NO_MANDATORY_FIELDS: 'no_mandatory_fields'
+				error = errors[err.code] or 'UNKNOWN'
+				res.render 'notification', notification: req.i18n.__("registration_failed__#{error}")
 
 
 app.get '/teams', (req, res) ->

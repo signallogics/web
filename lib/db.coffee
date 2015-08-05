@@ -70,12 +70,14 @@ module.exports =
 		# 	@option  [string] logo
 		# 	@option  [string] logoLink
 		###
-		add: (data) ->
+		add: (data, callback) ->
 			unless data.teamName \
 				and  data.email \
 				and (data.service or data.serviceLink) \
 				and (data.video or data.videoLink)
-					return no
+					callback
+						code: 'NO_MANDATORY_FIELDS'
+						message: 'Required teamName, email, service (path or link) and video (path or link)'
 			team = new Team()
 			team.name = data.teamName
 			team.email = data.email if data.email
@@ -90,18 +92,28 @@ module.exports =
 					pathType: 'url'
 					path: link
 				else
-					# TODO: Write error to logs
 					{}
 
-			team.logo = choiceType data.logo, data.logoLink
-			team.service = choiceType data.service, data.serviceLink
-			team.video = choiceType data.video, data.videoLink
+			team.logo = choiceType(data.logo, data.logoLink)
+			team.service = choiceType(data.service, data.serviceLink)
+			team.video = choiceType(data.video, data.videoLink)
 
-			Team.update email: team.email, name: $exists: no, team, upsert: true, (err, team) ->
-				# TODO: Write error to logs
-				if err then return console.error err
+			###*
+			# Update team if it doesn't have name
+			# Return error WRONG_EMAIL if email is already in use by any team
+			# Insert new team otherwise
+			###
+			Team.find { email: team.email }, (err, response) ->
 
-			return yes
+				if err then return callback err
+				if response[0].name
+					err =
+						code: 'WRONG_EMAIL'
+						message: 'This email is already in use'
+					return callback err
+
+				Team.update { email: team.email, name: $exists: no }, team, upsert: true, (err, team) ->
+					return callback err
 
 
 		###*
