@@ -48,19 +48,6 @@ describe 'storage', ->
 					assert.equal data.error.code, 'UNKNOWN'
 			srg.handler req, res
 
-		it 'should return FILE_LARGE error if req.file.size is bigger then 5 Mb and file is image', ->
-			fs.closeSync fs.openSync '/tmp/ctfight_test_file', 'w'
-			req =
-				file:
-					mimetype: 'image/jpg'
-					size: 1024 * 1024 * 1024
-					path: '/tmp/ctfight_test_file'
-			res =
-				send: (data) ->
-					assert.equal data.result, 'fail'
-					assert.equal data.error.code, 'FILE_LARGE'
-			srg.handler req, res
-
 		it 'should return file if image is less then 5 Mb', ->
 			req =
 				file:

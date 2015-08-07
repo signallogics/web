@@ -22,7 +22,6 @@ m._errors =
 
 
 m._fileIsImageFilter = (req, file, cb) ->
-		console.log file.mimetype.slice(0, 5)
 		if file.mimetype.slice(0, 5) isnt 'image'
 			req.file =
 				error_code: 'NOT_IMAGE'
@@ -40,12 +39,6 @@ m.handler = (req, res) ->
 				error: m._errors.UNKNOWN
 
 		unless req.file.error_code
-			# delete after fix this bug (https://github.com/expressjs/multer/issues/168)
-			if req.file.size > 1024 * 1024 * 5 and req.file.mimetype.slice(0, 5) is 'image' #
-				fs.unlink req.file.path                                                       #
-				return res.send                                                               #
-					result: 'fail'                                                              #
-					error: m._errors.FILE_LARGE                                                  #
 			return res.send
 				result: 'ok'
 				file: req.file
@@ -55,6 +48,7 @@ m.handler = (req, res) ->
 				result: 'fail'
 				error: m._errors[req.file.error_code] or m._errors.UNKNOWN
 
+# don't work because it's bug of multer module (https://github.com/expressjs/multer/issues/194)
 m.limitHandler = (err, req, res, next) ->
 		if err.code is 'LIMIT_FILE_SIZE'
 			res.send
@@ -81,5 +75,3 @@ m.uploadImages = multer
 		fileFilter: m._fileIsImageFilter
 		limits:
 			fileSize: 1024 * 1024 * 5
-			# delete after fix this bug (https://github.com/expressjs/multer/issues/168)
-			fileSize: 1024 * 1024 * 1024       #
