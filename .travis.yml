@@ -7,7 +7,7 @@ before_install:
   - 'npm install -g gulp coffee-script nodemon phantomjs istanbul coffee-coverage'
 
 after_success:
-  - 'npm run coverage'
+  - 'npm run coverage; bash <(curl -s https://codecov.io/bash);'
 
 services:
   - mongodb
