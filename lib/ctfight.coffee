@@ -6,6 +6,7 @@ morgan = require 'morgan'
 path = require 'path'
 debug = require('debug') 'ctfight:express'
 fs = require 'fs'
+archiver = require 'archiver'
 
 # express configuration
 
@@ -104,6 +105,23 @@ app.get '/translation', (req, res) ->
 		text: req.i18n.__(req.query.text)
 		locale: req.i18n.locale
 	res.send result
+
+app.get '/service', (req, res) ->
+	archive = archiver 'zip'
+
+	archive.on 'error', (err) ->
+		res.status(500).send error: err.message
+
+	# on stream closed we can end the request
+	res.on 'close', ->
+		debug 'Archive wrote %d bytes', archive.pointer()
+		return res.status(200).send('OK').end()
+
+	archive.pipe res
+	archive.directory 'static/files/crychat/', 'chychat'
+	archive.finalize()
+
+
 
 # development #
 

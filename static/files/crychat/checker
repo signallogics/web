@@ -1,0 +1,91 @@
+#!/bin/bash
+COMMAND=$1
+HOST=$2
+ID=$3
+FLAG=$4
+COOKIE=tmp/cookies_$HOST.txt
+TMPPAGE=tmp/page_$HOST.txt
+
+# command could be: get, put, check
+# exit(200) OK
+# exit(404) Not Found / Host unreachable
+# exit(423) Locked / Service is broken / Flag lost
+
+if [ -f "$COOKIE" ]; then
+	rm $COOKIE
+fi
+
+if [ -f "$TMPPAGE" ]; then
+	rm $TMPPAGE
+fi
+
+if [ ! -d tmp ]; then
+	mkdir tmp
+fi
+
+if [ "$1" == "put" ]; then
+
+	echo "$HOST	FALSE	/	FALSE	0	PHPSESSID	$ID" > $COOKIE
+	curl --silent -L -b $COOKIE -c $COOKIE "http://$HOST/index.php" > $TMPPAGE
+	LINES=$(cat $TMPPAGE | wc -l)
+	if [ $LINES -lt 1 ]; then
+		echo "ERROR(put): Host unreachable";
+		exit 404;
+	fi
+
+	sleep 0.7s
+	LINES=$(grep "var session_id = \"$ID\"" $TMPPAGE | wc -l)
+	if [ $LINES -lt 1 ]; then
+		echo "ERROR(put): Service is broken 1 ";
+		exit 423;
+	fi
+
+	curl  --silent -L -b $COOKIE -c $COOKIE "http://$HOST/index.php?action=addmsg&msg=hello%20Kitty!%20;)%20I%20have%20something%20for%20you%20*kiss*" > $TMPPAGE
+	sleep 1s
+	curl  --silent -L -b $COOKIE -c $COOKIE "http://$HOST/index.php?action=addmsg&msg=$FLAG" > $TMPPAGE
+	curl  --silent -L -b $COOKIE -c $COOKIE "http://$HOST/index.php?action=messages" > $TMPPAGE
+
+	LINES=$(grep "$FLAG" $TMPPAGE | wc -l)
+	if [ $LINES -lt 1 ]; then
+		echo "ERROR(put): Service is broken 2";
+		exit 423;
+	fi
+	echo "OK";
+	exit 200;
+
+elif [ "$1" == "get" ]; then
+
+	echo "$HOST	FALSE	/	FALSE	0	PHPSESSID	$ID" > $COOKIE
+	curl --silent -L -b $COOKIE -c $COOKIE "http://$HOST/index.php" > $TMPPAGE
+	LINES=$(cat $TMPPAGE | wc -l)
+	if [ $LINES -lt 1 ]; then
+		echo "ERROR(put): Host unreachable";
+		exit 404;
+	fi
+	LINES=$(grep "var session_id = \"$ID\"" $TMPPAGE | wc -l)
+	if [ $LINES -lt 1 ]; then
+		echo "ERROR(get): Service is broken 1 ";
+		exit 423;
+	fi
+	curl  --silent -L -b $COOKIE -c $COOKIE "http://$HOST/index.php?action=messages" > $TMPPAGE
+	LINES=$(grep "$FLAG" $TMPPAGE | wc -l)
+	if [ $LINES -lt 1 ]; then
+		echo "ERROR(put): Service is broken 2";
+		exit 423;
+	fi
+	echo "OK";
+	exit 200;
+elif [ "$1" == "check" ]; then
+	echo "$HOST	FALSE	/	FALSE	0	PHPSESSID	$ID" > $COOKIE
+	curl --silent -L -b $COOKIE -c $COOKIE "http://$HOST/index.php" > $TMPPAGE
+	LINES=$(cat $TMPPAGE | wc -l)
+	if [ $LINES -lt 1 ]; then
+		echo "ERROR(put): Host unreachable";
+		exit 404;
+	fi
+	echo "OK";
+	exit 200;
+else
+	echo "$1 - unknown command"
+	exit 404;
+fi
