@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # update sources
-git pull
+git pull --rebase
 
 # compile
 npm install
