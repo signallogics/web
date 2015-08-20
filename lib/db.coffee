@@ -110,7 +110,7 @@ module.exports =
 			Team.find { tour: 1, email: team.email }, (err, response) ->
 
 				if err then return callback err
-				if response[0].name
+				if response[0] and response[0].name
 					err =
 						code: 'WRONG_EMAIL'
 						message: 'This email is already in use'
