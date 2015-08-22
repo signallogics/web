@@ -6,6 +6,7 @@
   "scripts": {
     "watch": "NODE_ENV=dev DEBUG=ctfight:* gulp watch",
     "compile": "gulp --production",
+    "update": "git stash; git pull --rebase; npm install; gulp --production",
     "admin": "nodemon node_modules/mongo-express/app.js",
     "docker": "cd install; chmod +x install_all.sh; ./install_all.sh",
     "start": "DEBUG=ctfight:* nodemon index.coffee",
@@ -34,7 +35,7 @@
     "gulp-combine-media-queries": "^0.2.0",
     "gulp-cssmin": "^0.1.7",
     "gulp-if": "^1.2.5",
-    "gulp-nodemon": "^2.0.3",
+    "gulp-nodemon": "^2.0.4",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^5.1.10",
@@ -53,7 +54,7 @@
     "supertest": "^1.0.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.3.1",
-    "yargs": "^3.19.0"
+    "yargs": "^3.21.0"
   },
   "dependencies": {
     "archiver": "^0.14.4",
