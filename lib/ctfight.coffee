@@ -58,7 +58,7 @@ db = require './db.coffee'
 
 
 # main pages #
-app.route ['/:lang?', '/:lang?/index']
+app.route ['/', '/:lang?/index']
 	.get (req, res) ->
 		res.render 'index', title: req.i18n.__('index_title')
 	.post (req, res) ->
