@@ -7,6 +7,7 @@ path = require 'path'
 debug = require('debug') 'ctfight:express'
 fs = require 'fs'
 archiver = require 'archiver'
+basicAuth = require 'basic-auth'
 
 # express configuration
 
@@ -134,8 +135,24 @@ app.get '/service', (req, res) ->
 
 
 
+auth = (req, res, next) ->
+	unauthorized = (res) ->
+		res.set 'WWW-Authenticate', 'Basic realm=Authorization Required'
+		res.send 401
+
+	user = basicAuth req
+
+	unless user and user.name and user.pass
+		return unauthorized res
+
+	if user.name is 'admin' and user.pass is process.env.CTFIGHT_PASS
+		return do next
+	else
+		return unauthorized res
+
+
 app.route '/admin'
-	.get (req, res) ->
+	.get auth, (req, res) ->
 		app.use express.static 'uploads'
 		db.teams.list (err, teams) ->
 			unless err

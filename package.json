@@ -25,6 +25,7 @@
   "homepage": "https://github.com/ctfight/ctfight-web#readme",
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
+    "basic-auth": "^1.0.3",
     "browser-sync": "^2.8.2",
     "browserify": "^11.0.1",
     "chai": "^3.2.0",
