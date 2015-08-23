@@ -3,29 +3,45 @@ extends layout
 block content
 	link(rel='stylesheet' href='generated/admin.css')
 	.container
-		h2.title Божественная админка на бутстрапе
-			small  Правда ведь?
-
 
 		each team in teams
-			form.form-block
+			.form-block
 				img.team-logo(height=100 width=100 src=team.logo.path)
-				if team.verified
-					.right.btn.btn-success Исключить
-					h3= team.name
-						small  одобрена
-					p= team.info
-				else
-					.right.btn.btn-warning Одобрить
-					h3= team.name
-						small  на рассмотрении
+				form(method='post')
+					input(name='id' type='hidden' value=team._id)
+					if team.verified
+						input.right.btn.btn-success(
+							name='verified'
+							type='submit'
+							value='Исключить'
+						)
+						h3= team.name
+							small  одобрена
+						p= team.info
+					else
+							input.right.btn.btn-warning(
+								name='verified'
+								type='submit'
+								value='Одобрить'
+							)
+						h3= team.name
+							small  на рассмотрении
 
 				.form-group
 					label= team.registrationDate
 
 				.form-group
 					label E-mail
-					input.form-control(type='email' placeholder='E-mail' value=team.email)
+					form(method='post')
+						input(name='id' type='hidden' value=team._id)
+						input.form-control(
+							style='display: inline; width: 500px'
+							name='email'
+							type='email'
+							placeholder='E-mail'
+							value=team.email
+						)
+						input.btn.btn-default(type='submit' value='Изменить e-mail')
 				.form-group
 					p= team.author
 					a.btn.btn-primary(href=team.service.path) скачать сервис

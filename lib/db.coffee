@@ -132,3 +132,9 @@ module.exports =
 
 				callback err, teams
 
+
+
+		replaceData: (id, data, callback) ->
+			Team.update { _id: id }, data, (err, team) ->
+				callback err, team
+

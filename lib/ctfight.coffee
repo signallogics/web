@@ -133,11 +133,27 @@ app.get '/service', (req, res) ->
 	archive.finalize()
 
 
-app.get '/admin', (req, res) ->
-	app.use express.static 'uploads'
-	db.teams.list (err, teams) ->
-		unless err
-			res.render 'admin', teams: teams
+
+app.route '/admin'
+	.get (req, res) ->
+		app.use express.static 'uploads'
+		db.teams.list (err, teams) ->
+			unless err
+				res.render 'admin', teams: teams
+
+	.post (req, res) ->
+		_data = req.body
+		if _data and _data.id and (_data.email or _data.verified)
+			data = switch
+				when _data.email then email: _data.email
+				when _data.verified then verified: _data.verified is 'Одобрить'
+
+			db.teams.replaceData _data.id,
+				data
+				(err, team) ->
+					if err then return console.error err
+					console.log err, team
+					return res.redirect '/admin'
 
 
 # development #
