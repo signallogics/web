@@ -1,76 +1,98 @@
-main: main # главная
-teams: teams # команды
+main: main
+teams: teams
 index_title: CTFight
-request_title: '?' # Участвовать в CTFight
-teams_title: CTFight | Teams # CTFight | Команды
-remind_me: Remind me # Напомнить
-remind_about_start: Remind me about the event # Напомнить о начале турнира
-service_example: service example # пример сервиса
-write_up_example: write up example # пример видео-разбора
-rulers: rulers # регламент
-take_part: take part # принять участие
+request_title: Participate
+teams_title: CTFight | Teams 
+remind_me: Remind me
+remind_about_start: Remind me about the event
+service_example: service example
+write_up_example: video write up example
+rulers: rulers
+take_part: take part
 
 # placeholders
-team_name: Team name # Название команды
-email: E-mail # e-mail
-contacts: Contacts # Контакты
-logo_link_or_file: Logo (link or file) # Логотип (ссылка или файл)
-info: City and university # Город и университет
-service_link_or_file: Service (link or file) # Сервис (ссылка или файл)
-video_write_up_link_or_file: Video write up (link or file) # Видео-разбор (ссылка или файл)
-author_or_authors: Author or authors of service # Автор или авторы сервиса
+team_name: Team name
+email: E-mail
+contacts: Contacts
+logo_link_or_file: Logo (link or file)
+info: City and university
+service_link_or_file: Service (link or file)
+video_write_up_link_or_file: Video write up (link or file)
+author_or_authors: Author or authors of service
 
 # others
-necessary: Necessary # Обязательно
-choose: choose # выбрать
+necessary: Necessary
+choose: choose
 
 # tip's titles
-logo: Logo # Логотип
-service: Service # Сервис
-contact_email: Contact e-mail # Контактный e-mail
-video_write_up: Video write up # Видео-разбор сервиса
-contact_details: Contact details # Контактная информация
+logo: Logo
+service: Service
+contact_email: Contact e-mail
+video_write_up: Video write up
+contact_details: Contact details
 
 # tip's texts
-tip_team_name: '?' # Вы сможете изменить название позже
-tip_email: '?'
-tip_contacts: Include phone of captain's and service author # Укажите телефоны капитана и автора сервиса
-tip_logo: '?' # Вставьте ссылку или выберите файл с компьютера. Размер файла должен быть не менее 100x100 и не более 1000x1000.
-tip_info: '?' # Укажите город или университет
-tip_service: '?' # Вставьте ссылку или выберите файл. Сервис должен содержать не менее двух уязвимостей. Не забудьте добавить deb-package или инструкцию по установке. Железо для запуска сервиса предоставляет команда keva.
-tip_video_write_up: '?' # Разбор уязвимостей. Постарайтесь уложиться в 20 минут.
-tip_author_or_authors: '?' # Добавьте автора, авторов и/или команду, разработавшую сервис. По умолчанию это ваша команда.
+tip_team_name: You can change the name later
+tip_email: We will communicate with you through it
+tip_contacts: Include phone of captain's and service author
+tip_logo: Insert a link, or select a file from your computer. File size should be no less than 100x100 and no more than 1000x1000.
+tip_info: Enter city or university
+tip_service: Insert a link, or select a file. Service must contain at least two vulnerabilities. Do not forget to add the deb-package and installation instructions. Hardware provides a service to run a team keva.
+tip_video_write_up: Parsing vulnerability. Try to stay within 20 minutes.
+tip_author_or_authors: Add author, authors and / or commands designed service. By default, this is your team.
 
 # tours
-first_tour: First tour # Первый тур
-second_tour: Second tour # Второй тур
-third_tour: Third tour # Третий тур
+first_tour: First tour
+second_tour: Second tour
+third_tour: Third tour
 
 # submit
-send_request: send request # отправить заявку
+send_request: send request
 
 
-participate: participate # участвовать
-what_is_ctfight: '?'
-small_rulers: '?'
+participate: participate
+what_is_ctfight: <p> <strong> CTFight </strong> - this tournament CTF. </p> <p> CTF - is a competition for Information Security (legal or hacking of the game). Tournament necessary as preparation for the big games. </p>
+small_rulers: The tournament involved eight teams. It will be played 7 small games. The game lasts 2 hours in each game would be limited to two teams and will be used only one service. The final game will be used the other two services. Any command is accepted in part only with the service and the video for it. After each game, the winner will be announced and posted a video of the author's analysis of the service.
 
 defense: 'Defense'
 offense: 'Offense'
 summary: 'Summary'
 
-register_is_open: '?' # Зарегистрированно %s из 8.
-register_is_in_next_time: '?' # На ближайший тур зарегистрированно 8 из 8 команд. Ну следующий %s из 8.
-register_is_inaccessible: '?' # Регистрация на ближайшие игры закончилась.
+register_is_open: Listed %s from 8.
+register_is_in_next_time: In the next round of registered 8 of 8 teams. The next %s of 8.
+register_is_inaccessible: Register for the next game has ended.
 
-we_notify_you_about_start: '?'
-registration_success: '?'
-to_index: to main # на главную
+we_notify_you_about_start: We remind you about the beginning of the competition.
+registration_success: The team successfully registered.
+to_index: to main
 
-error_LIMIT_FILE_SIZE: '?' # Слишком большой файл
-error_UNKNOWN: '?' # Неизвестная ошибка
-error_NOT_IMAGE: '?' # Файл должен быть изображенем
-error_FILE_LARGE: '?' # Слишком большой файл
+error_LIMIT_FILE_SIZE:
+error_UNKNOWN: Unknown error
+error_NOT_IMAGE: The file must be an image
+error_FILE_LARGE: Too large file
 
-concept_checker: '?'
-concept_service: '?'
-concept_video: '?'
+concept_checker: >
+  Checker must be from a script written in bash or python (or using any shell which is the default debian jessie). <br/>
+  Chequer should not be available to other teams (the organizers will publish it ourselves) <br/>
+  Example of call for that would put a flag: ./checker put 172.17.0.65 someid3 4FE93926-55E6-47E7-9089-9BDED570B631 <br/>
+  An example of a call to check that would flag: ./checker get 172.17.0.65 someid3 4FE93926-55E6-47E7-9089-9BDED570B631 <br/>
+  Code 200 indicates that all is well (flag set / flag found / service checking) <br/>
+  Code 404 indicates that the service is bad and lost. <br/>
+  Code 423 indicates that the service is broken or that the flag is not found. <br/>
+  Other codes are not considered valid and recognized checker incorrect. <br>
+  File Checker should be called checker, to be executable (chmod + x checker) and lie in the directory with the sending service. <br>
+
+concept_service: >
+  Service is best to wrap the container in the docker (Dockerfile). <br/>
+  Service should not be available to other teams (the organizers will publish it ourselves) <br/>
+  Must be at least 2 vulnerabilities. <br/>
+  Must be installed ssh server. <br/>
+  There must be a script: rebuild.sh that will remove the old containers and create new service. <br/>
+  Must be installed README.md that records the date, time, service and author of his contacts and additional information. <br/>
+  Also be sure to presence of a presentation describing the vulnerability and how to close them - everything else is optional. <br/>
+
+concept_video: >
+  The video can not be published (the organizers will publish its own). <br/>
+  The video must have a friendly greet. <br/>
+  Demonstration of exploitation and its elimination. <br/>
+  Being normal quality. <br/>

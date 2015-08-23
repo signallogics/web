@@ -1,76 +1,112 @@
-main: '?' # главная
-teams: '?' # команды
-index_title: '?'
-request_title: '?' # Участвовать в CTFight
-teams_title: CTFight | '?' # CTFight | Команды
-remind_me: '?' # Напомнить
-remind_about_start: '?' # Напомнить о начале турнира
-service_example: '?' # пример сервиса
-write_up_example: '?' # пример видео-разбора
-rulers: '?' # регламент
-take_part: '?' # принять участие
+main: Hauptleitung
+teams: Kommandos
+index_title: CTFight
+request_title: Mitmachen
+teams_title: CTFight | Gegner schoss
+remind_me: Erinnere mich
+remind_about_start: Erinnere mich über die Veranstaltung
+service_example: Dienst beispiels
+write_up_example: Videos schreiben, bis beispiels
+rulers: Herrscher
+take_part: teilnehmen
 
 # placeholders
-team_name: '?' # Название команды
-email: E-mail # e-mail
-contacts: '?' # Контакты
-logo_link_or_file: '?' # Логотип (ссылка или файл)
-info: '?' # Город и университет
-service_link_or_file: '?' # Сервис (ссылка или файл)
-video_write_up_link_or_file: '?' # Видео-разбор (ссылка или файл)
-author_or_authors: '?' # Автор или авторы сервиса
+team_name: Name der Kommando
+email: E-mail
+contacts: Kontakte
+logo_link_or_file: Logo (Link oder Datei)
+info: Stadt und Universität
+service_link_or_file: Dienst (Link oder Datei)
+video_write_up_link_or_file: Video bis zu schreiben (Link oder Datei)
+author_or_authors: Oder die Verfasser Dienst
 
 # others
-necessary: '?' # Обязательно
-choose: '?' # выбрать
+necessary: Erforderlich
+choose: auswählen
 
 # tip's titles
-logo: '?' # Логотип
-service: '?' # Сервис
-contact_email: '?' # Контактный e-mail
-video_write_up: '?' # Видео-разбор сервиса
-contact_details: '?' # Контактная информация
+logo: Logo
+service: Dienst
+contact_email: Kontakt E-mail
+video_write_up: Video bis zu schreiben
+contact_details: Kontaktdaten
 
 # tip's texts
-tip_team_name: '?' # Вы сможете изменить название позже
-tip_email: '?'
-tip_contacts: '?' # Укажите телефоны капитана и автора сервиса
-tip_logo: '?' # Вставьте ссылку или выберите файл с компьютера. Размер файла должен быть не менее 100x100 и не более 1000x1000.
-tip_info: '?' # Укажите город или университет
-tip_service: '?' # Вставьте ссылку или выберите файл. Сервис должен содержать не менее двух уязвимостей. Не забудьте добавить deb-package или инструкцию по установке. Железо для запуска сервиса предоставляет команда keva.
-tip_video_write_up: '?' # Разбор уязвимостей. Постарайтесь уложиться в 20 минут.
-tip_author_or_authors: '?' # Добавьте автора, авторов и/или команду, разработавшую сервис. По умолчанию это ваша команда.
+tip_team_name: Sie können den Namen später ändern
+tip_email: Wir werden mit Ihnen durch sie kommunizieren
+tip_contacts: Fügen Sie telefonisch von Kapitänen und Service Autor
+tip_logo: Setzen Sie einen Link, oder wählen Sie eine Datei von Ihrem Computer. Dateigröße sollte nicht weniger als 100x100 und nicht mehr als 1000x1000 werden.
+tip_info: Geben Sie Stadt oder Universitäts
+tip_service: Setzen Sie einen Link, oder wählen Sie eine Datei. Service muss mindestens zwei Schwachstellen enthalten. Vergessen Sie nicht, die deb-Paket und Installationsanleitung hinzuzufügen. Hardware bietet einen Service, ein Kommando keva laufen.
+tip_video_write_up: Parsen von Verletzlichkeit. Versuchen Sie, innerhalb von 20 Minuten zu bleiben.
+tip_author_or_authors: In autor, autoren und / oder Befehle ausgelegt Service. Standardmäßig ist dies Ihr Kommando.
 
 # tours
-first_tour: '?' # Первый тур
-second_tour: '?' # Второй тур
-third_tour: '?' # Третий тур
+first_tour: erste Tour
+second_tour: zweite Tour
+third_tour: dritte Tour
 
 # submit
-send_request: send request # отправить заявку
+send_request: Anfrage senden
 
 
-participate: '?' # участвовать
-what_is_ctfight: '?'
-small_rulers: '?'
+participate: partizipieren
+what_is_ctfight: >
+  <p> <strong> CTFight </strong> - dieses Turnier CTF. </p>
+  <p> CTF - ist ein Wettbewerb für Informationssicherheit (gesetzliche oder Hacking des Spiels).
+  Turnier notwendig als Vorbereitung für die großen Spiele. </p>
 
-defense: '?' # Защита
-offense: '?' # Атака
-summary: '?' # Итог
+small_rulers: >
+  Das Turnier beteiligten acht Kommandos.
+  Es wird gespielt 7 kleine Spiele.
+  Das Spiel dauert 2 Stunden in jedem Spiel wäre,
+  um zwei Kommandos begrenzt sein und nur einen Dienst
+  verwendet werden. Das Endspiel wird die beiden
+  anderen Dienste verwendet werden. Jeder Befehl
+  wird zum Teil nur mit dem Service und dem Video
+  für sie angenommen. Nach jedem Spiel wird der
+  Gewinner bekannt gegeben und veröffentlicht
+  ein Video von der Autoren Analyse der Service.
 
-register_is_open: '?' # Зарегистрированно %s из 8.
-register_is_in_next_time: '?' # На ближайший тур зарегистрированно 8 из 8 команд. Ну следующий %s из 8.
-register_is_inaccessible: '?' # Регистрация на ближайшие игры закончилась.
+defense: 'Verteidigung'
+offense: 'Vergehen'
+summary: 'Zusammenfassung'
 
-we_notify_you_about_start: '?'
-registration_success: '?'
-to_index: '?' # на главную
+register_is_open: Eingestellt %s 8.
+register_is_in_next_time: In der nächsten Runde der eingetragenen 8 von 8 Kommandos. Der nächste %s von 8.
+register_is_inaccessible: Registrieren Sie sich für das nächste Spiel ist beendet.
 
-error_LIMIT_FILE_SIZE: '?' # Слишком большой файл
-error_UNKNOWN: '?' # Неизвестная ошибка
-error_NOT_IMAGE: '?' # Файл должен быть изображенем
-error_FILE_LARGE: '?' # Слишком большой файл
+we_notify_you_about_start: Wir erinnern Sie daran zu Beginn des Wettbewerbs.
+registration_success: Das Kommandos erfolgreich registriert.
+to_index: zur Hauptleitung
 
-concept_checker: '?'
-concept_service: '?'
-concept_video: '?'
+error_LIMIT_FILE_SIZE:
+error_UNKNOWN: Unbekannter Fehler
+error_NOT_IMAGE: Die Datei muss ein Bild sein
+error_FILE_LARGE: Eine zu große Datei
+
+concept_checker: >
+  Checker muss aus einem Skript in bash oder Python (oder mit jeder Schale, die die Standard-debian jessie ist) geschrieben werden. <br/>
+  Chequer sollte nicht für andere Kommandos (die Organisatoren veröffentlichen wir selbst) <br/>
+  ./checker Setzen 172.17.0.65 someid3 4FE93926-55E6-47E7-9089-9BDED570B631 <br/>: Beispiel Call denn das wäre eine Flagge setzen
+  Ein Beispiel für einen Anruf, um zu überprüfen, dass würde Flagge: ./checker get 172.17.0.65 someid3 4FE93926-55E6-47E7-9089-9BDED570B631 <br/>
+  Code 200 zeigt an, dass alles in Ordnung ist (Flag gesetzt / flag gefunden / Dienst) <br/>
+  Code 404 zeigt an, dass der Service ist schlecht und verlor. <br/>
+  Code 423 zeigt an, dass der Dienst unterbrochen ist oder dass die Flagge nicht gefunden wird. <br/>
+  Andere Codes werden nicht als gültig und anerkannt checker falsch. szmtag
+  File Checker Checker sollten in dem Verzeichnis mit der Absendung Dienst einberufen werden, ausführbar sein (chmod + x-Checker) und Lüge. szmtag
+
+concept_service: >
+  Service ist am besten, um den Behälter in der Hafenarbeiter (Dockerfile) zu wickeln. <br/>
+  Service nicht verfügbar sein, um anderen Kommandos (die Organisatoren veröffentlichen wir selbst) <br/>
+  Muss mindestens 2 Lücken aufweisen kann. <br/>
+  Muss SSH-Server installiert werden. <br/>
+  Rebuild.sh, die die alten Behälter zu entfernen und zur Schaffung neuer Dienst: Es muss ein Skript sein. <br/>
+  Muss README.md, die das Datum, die Uhrzeit, Service und Autor seiner Kontakte und zusätzliche Informationen aufzeichnet installiert werden. <br/>
+  Auch sicher sein, um die Anwesenheit einer Präsentation der Beschreibung der Sicherheitslücke und wie man sie zu schließen - alles andere ist optional. <br/>
+
+concept_video: >
+  Das Video kann nicht angezeigt (der Veranstalter seine eigenen zu veröffentlichen). <br/>
+  Das Video muss einen freundlichen grüßen. <br/>
+  Demonstration der Ausbeutung und ihre Beseitigung. <br/>
+  Als normaler Qualität. <br/>
