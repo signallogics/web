@@ -15,6 +15,7 @@ autoprefixer = require 'autoprefixer-core'
 cssmin = require 'gulp-cssmin'
 sourcemaps = require 'gulp-sourcemaps'
 nib = require 'nib'
+bootstrap = require 'bootstrap-styl'
 
 # utilities
 nodemon = require 'gulp-nodemon'
@@ -90,7 +91,7 @@ gulp.task 'stylus', ->
     .pipe plumber errorHandler: notify.onError "Error: <%= error.message %>"
     .pipe gulpif not production, sourcemaps.init()
     .pipe stylus
-      use: [nib()]
+      use: [nib(), bootstrap()]
       'include css': true
       include: ['node_modules/']
       compress: production

@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	link(rel='stylesheet' href='generated/admin.css')
+	.container
+		h2.title Божественная админка на бутстрапе
+			small  Правда ведь?
+
+
+		each team in teams
+			form.form-block
+				img.team-logo(height=100 width=100 src=team.logo.path)
+				if team.verified
+					.right.btn.btn-success Исключить
+					h3= team.name
+						small  одобрена
+					p= team.info
+				else
+					.right.btn.btn-warning Одобрить
+					h3= team.name
+						small  на рассмотрении
+
+				.form-group
+					label= team.registrationDate
+
+				.form-group
+					label E-mail
+					input.form-control(type='email' placeholder='E-mail' value=team.email)
+				.form-group
+					p= team.author
+					a.btn.btn-primary(href=team.service.path) скачать сервис
+				.form-group
+					a.btn.btn-default(href=team.video.path) видео
+					if team.video.pathType == 'file'
+						hr
+						video(controls width=400)
+							source(src=team.video.path)
+

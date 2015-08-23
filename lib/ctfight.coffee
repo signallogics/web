@@ -104,6 +104,8 @@ app.post '/upload/static', srg.uploadImages.single('file'), srg.handler
 
 app.get '/static/*', (req, res) ->
 	res.redirect req.path.substr 7
+app.get '/uploads/*', (req, res) ->
+	res.redirect req.path.substr 8
 
 ###
 # get translation of work with i18n module
@@ -130,6 +132,12 @@ app.get '/service', (req, res) ->
 	archive.directory 'static/files/crychat/', 'chychat'
 	archive.finalize()
 
+
+app.get '/admin', (req, res) ->
+	app.use express.static 'uploads'
+	db.teams.list (err, teams) ->
+		unless err
+			res.render 'admin', teams: teams
 
 
 # development #
