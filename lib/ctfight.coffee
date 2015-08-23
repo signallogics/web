@@ -31,13 +31,22 @@ srg = require './storage.coffee'
 app.use srg.limitHandler
 
 # localization
+locales = ['ru', 'en', 'de']
 
 i18n.expressBind app,
-	locales: ['ru', 'en'],
+	locales: locales,
 	cookieName: 'locale'
 
 app.use (req, res, next) ->
-	req.i18n.setLocale req.cookies.locale
+	lang = req.url.slice(1, 3)
+	if lang in locales
+		for locale in locales
+			if lang is locale
+				req.i18n.setLocale lang
+				res.cookie 'locale', lang
+	else
+		do req.i18n.setLocaleFromCookie
+
 	do next
 
 
@@ -49,7 +58,7 @@ db = require './db.coffee'
 
 
 # main pages #
-app.route ['/', '/index']
+app.route ['/:lang?', '/:lang?/index']
 	.get (req, res) ->
 		res.render 'index', title: req.i18n.__('index_title')
 	.post (req, res) ->
@@ -57,7 +66,7 @@ app.route ['/', '/index']
 		res.render 'notification', notification: req.i18n.__('we_notify_you_about_start')
 
 
-app.route '/request'
+app.route '/:lang?/request'
 
 	.get (req, res) ->
 		db.teams.list (err, teams) ->
@@ -84,7 +93,7 @@ app.route '/request'
 				res.render 'notification', notification: req.i18n.__("registration_failed__#{error}")
 
 
-app.get '/teams', (req, res) ->
+app.get '/:lang?/teams', (req, res) ->
 	db.teams.list (err, teams) ->
 		unless err
 			res.render 'teams', teamsTitle: 'Первый тур', teams: teams.slice(0, 8), title: req.i18n.__('teams_title')

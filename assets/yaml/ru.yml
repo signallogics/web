@@ -51,7 +51,7 @@ we_notify_you_about_start: Мы напомним вам о начале соре
 registration_success: Команда успешно зарегистрирована.
 to_index: на главную
 
-error_LIMIT_FILE_SIZE:
+error_LIMIT_FILE_SIZE: Слишком большой файл
 error_UNKNOWN: Неизвестная ошибка
 error_NOT_IMAGE: Файл должен быть изображенем
 error_FILE_LARGE: Слишком большой файл
