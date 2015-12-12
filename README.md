@@ -53,7 +53,7 @@ Use this type of installation for development
 1. Install [node.js](https://nodejs.org) (`npm` will install automatically)  
 1.1 Or install from repository: `sudo apt-get install nodejs nodejs-legacy npm`
 2. Install mongodb: `sudo apt-get install mongodb`
-3. Start mongodb: `sudo /etc/init.d/mongodb start`
+3. Start mongodb: `sudo /etc/init.d/mongod start`
 4. Install git: `sudo apt-get install git-core`
 5. Clone repository `git clone https://github.com/ctfight/web.git ctfight-web`
 6. Go to work folder `cd ctfight-web`
