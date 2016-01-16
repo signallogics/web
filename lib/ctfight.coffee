@@ -8,7 +8,7 @@ debug = require('debug') 'ctfight:express'
 fs = require 'fs'
 archiver = require 'archiver'
 basicAuth = require 'basic-auth'
-config = require '../config.coffee'
+config = require '../get-config.coffee'
 
 # express configuration
 

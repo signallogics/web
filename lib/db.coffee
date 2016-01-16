@@ -1,6 +1,6 @@
 debug = require('debug') 'ctfight:db'
 mongoose = require 'mongoose'
-config = require '../config.coffee'
+config = require '../get-config.coffee'
 
 
 mongoose.connect "mongodb://#{config.MONGO_HOST}:#{config.MONGO_PASS}/ctfight"
