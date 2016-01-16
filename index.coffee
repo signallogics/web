@@ -3,5 +3,6 @@ debug = require('debug') 'ctfight'
 app = require './lib/ctfight.coffee'
 
 # launch server #
-_server = app.listen 5000, ->
-	debug 'Listening on port 5000'
+port = process.env.PORT or 5000
+_server = app.listen port, ->
+	debug "Listening on port #{port}"

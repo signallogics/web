@@ -7,6 +7,11 @@
 
 ![](static/images/header.png)
 
+### The best commands
+`npm run production` run for production (install dependences before)
+`npm run update` update and restart
+
+
 ## Getting Started
 ### Prerequisites
 * Unix-based operating system (OS X or Linux)
