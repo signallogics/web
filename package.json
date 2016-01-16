@@ -6,9 +6,8 @@
   "scripts": {
     "watch": "NODE_ENV=dev DEBUG=ctfight:* gulp watch",
     "compile": "gulp --production",
-    "production": "NODE_ENV=production pm2 start index.coffee",
-    "restart": "NODE_ENV=production pm2 restart all",
-    "update": "git stash; git pull; npm install; gulp --production; npm run restart",
+    "production": "pm2 start index.coffee",
+    "update": "git stash; git pull; npm install; gulp --production; pm2 restart all",
     "admin": "nodemon node_modules/mongo-express/app.js",
     "docker": "cd install; chmod +x install_all.sh; ./install_all.sh",
     "start": "DEBUG=ctfight:* nodemon index.coffee",

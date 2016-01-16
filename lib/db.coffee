@@ -1,10 +1,11 @@
 debug = require('debug') 'ctfight:db'
 mongoose = require 'mongoose'
+config = require '../config.coffee'
 
 # process.env.MONGO_PORT_27017_TCP_ADDR is wrong, if don't know why
-if process.env.MONGO_PORT_27017_TCP_PORT
+if config.MONGO_PORT_27017_TCP_PORT
 	host = 'mongo'
-	port = process.env.MONGO_PORT_27017_TCP_PORT
+	port = config.MONGO_PORT_27017_TCP_PORT
 else
 	host = 'localhost'
 	port = 27017

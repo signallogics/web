@@ -4,3 +4,4 @@ static/generated/
 locales/
 uploads/
 coverage/
+config.coffee

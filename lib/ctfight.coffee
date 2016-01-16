@@ -8,6 +8,7 @@ debug = require('debug') 'ctfight:express'
 fs = require 'fs'
 archiver = require 'archiver'
 basicAuth = require 'basic-auth'
+config = require '../config.coffee'
 
 # express configuration
 
@@ -19,8 +20,8 @@ app.use do cookieParser
 app.use do bodyParser.json
 app.use bodyParser.urlencoded extended: yes, limit: 100000000
 
-console.log " ----- #{process.env.NODE_ENV} mode ----- "
-switch process.env.NODE_ENV
+console.log " ----- #{config.NODE_ENV} mode ----- "
+switch config.NODE_ENV
 	when 'dev'
 		app.use morgan 'dev', devDefaultColor: 90
 	when 'production'
@@ -145,7 +146,7 @@ auth = (req, res, next) ->
 	unless user and user.name and user.pass
 		return unauthorized res
 
-	if user.name is 'admin' and user.pass is process.env.CTFIGHT_PASS
+	if user.name is 'admin' and user.pass is config.ADMIN_PASS
 		return do next
 	else
 		return unauthorized res
@@ -176,7 +177,7 @@ app.route '/admin'
 # development #
 
 # if running without --production flag
-if process.env.NODE_ENV is 'dev'
+if config.NODE_ENV is 'dev'
 	jade = require 'jade'
 
 	# jade syntax hightlight with prism.js
